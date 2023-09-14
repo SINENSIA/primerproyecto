@@ -8,10 +8,12 @@ package com.sinensia.primerprograma;
 public class Operadores {
     /**
      * Método main para probar la clase Operadores.
+     * SupressWarining: java:S2589 y java:S106 ya
+     * que son pruebas de concepto.
      *
      * @param args argumentos de la línea de comandos
      */
-    @SuppressWarnings("unused")
+    @SuppressWarnings({ "unused", "java:S2589" })
     public static void main(String[] args) {
 
         // Operadores aritméticos
@@ -36,10 +38,10 @@ public class Operadores {
         boolean condicion2 = false;
 
         // Falso, ya que ambas condiciones deben ser verdaderas
-        boolean yLogico = (condicion1 && condicion2);
+        boolean andLogico = (condicion1 && condicion2);
 
         // Verdadero, ya que al menos una condición es verdadera
-        boolean oLogico = (condicion1 || condicion2);
+        boolean orLogico = (condicion1 || condicion2);
 
         // Falso, ya que se invierte la condición
         boolean negacionLogica = !condicion1;

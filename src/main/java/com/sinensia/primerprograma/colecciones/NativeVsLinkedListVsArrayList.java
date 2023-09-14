@@ -4,11 +4,27 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Ejemplo de uso de ArrayList. Rendimiento de ArrayList, LinkedList y array
+ * Suprmmir warnings con @SuppressWarnings("all") ya que no usamos las variables
+ * y separamos las declaraciones mucho para que quede más claro
+ *
+ * @version 1.0 desde 1.0
+ * @since 1.0
+ * @see java.util.ArrayList
+ * @see java.util.List
+ * @see java.util.LinkedList
+ * 
+ */
 public class NativeVsLinkedListVsArrayList {
-
-    @SuppressWarnings("unused")
+    /**
+     * Ejemplo de uso de ArrayList. Rendimiento de ArrayList, LinkedList y array.
+     *
+     * @param args parametros de consola (String[] args)
+     */
+    @SuppressWarnings("all")
     public static void main(String[] args) {
-        int n = 500_000; // Tamaño de la lista
+        int n = 100_000; // Tamaño de la lista
 
         // Crear una ArrayList y una LinkedList
         List<Integer> arrayList = new ArrayList<>();
@@ -89,25 +105,39 @@ public class NativeVsLinkedListVsArrayList {
 
         // Imprimir los tiempos medidos
         System.out.println(
-                "Tiempo para agregar elementos (myNativeArray): " + myNativeArrayAddTime / 1_000_000 + " nanosegundos");
+                "Tiempo para agregar elementos (myNativeArray): "
+                        + myNativeArrayAddTime / 1_000_000
+                        + " milisegundos");
         System.out.println(
-                "Tiempo para agregar elementos (ArrayList): " + arrayListAddTime / 1_000_000 + " nanosegundos");
+                "Tiempo para agregar elementos (ArrayList): "
+                        + arrayListAddTime / 1_000_000
+                        + " milisegundos");
         System.out.println(
-                "Tiempo para agregar elementos (LinkedList): " + linkedListAddTime / 1_000_000 + " nanosegundos");
-        System.out.println("Tiempor para quitar elementos (myNativeArray): " + myNativeArrayRemoveTime / 1_000_000
-                + " nanosegundos");
+                "Tiempo para agregar elementos (LinkedList): "
+                        + linkedListAddTime / 1_000_000
+                        + " milisegundos");
+        System.out.println("Tiempor para quitar elementos (myNativeArray): "
+                + myNativeArrayRemoveTime / 1_000_000
+                + " milisegundos");
         System.out.println(
-                "Tiempo para quitar elementos (ArrayList): " + arrayListRemoveTime / 1_000_000 + " nanosegundos");
+                "Tiempo para quitar elementos (ArrayList): "
+                        + arrayListRemoveTime / 1_000_000
+                        + " milisegundos");
         System.out
-                .println("Tiempo para quitar elementos (LinkedList): " + linkedListRemoveTime / 1_000_000
-                        + " nanosegundos");
-        System.out.println("Tiempo para consultar elementos (myNativeArray): " + myNativeArrayGetTime / 1_000_000
-                + " nanosegundos");
+                .println("Tiempo para quitar elementos (LinkedList): "
+                        + linkedListRemoveTime / 1_000_000
+                        + " milisegundos");
+        System.out.println("Tiempo para consultar elementos (myNativeArray): "
+                + myNativeArrayGetTime / 1_000_000
+                + " milisegundos");
         System.out.println(
-                "Tiempo para consultar elementos (ArrayList): " + arrayListGetTime / 1_000_000 + " nanosegundos");
+                "Tiempo para consultar elementos (ArrayList): "
+                        + arrayListGetTime / 1_000_000
+                        + " milisegundos");
         System.out
-                .println("Tiempo para consultar elementos (LinkedList): " + linkedListGetTime / 1_000_000
-                        + " nanosegundos");
+                .println("Tiempo para consultar elementos (LinkedList): "
+                        + linkedListGetTime / 1_000_000
+                        + " milisegundos");
 
     }
 }

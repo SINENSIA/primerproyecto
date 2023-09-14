@@ -4,8 +4,20 @@ import java.util.Arrays;
 import java.util.Vector;
 import java.util.List;
 
+/**
+ * Ejemplo de uso de Vector.
+ * En general es mejor usar ArrayList en lugar de Vector.
+ * Para thread-safe optar por CopyOnWriteArrayList.
+ * SuppressWarinigns por el use de Vector
+ * 
+ */
+@SuppressWarnings("all")
 public class MiVector {
-
+    /**
+     * Método principal.
+     *
+     * @param args parametros de consola
+     */
     public static void main(String[] args) {
 
         Vector<Integer> miLista = new Vector<>(); // Crea una lista de enteros vacía.
@@ -60,14 +72,17 @@ public class MiVector {
         // o miListaDoubles.remove(2.0); por valor
         System.out.println(miListaDoubles.toString());
 
-        miListaDoubles.remove(2); // por indice, como hemos eliminado el 2d, ahora el 4d pasa a ser el índice 2
+        miListaDoubles.remove(2);
+        // por indice, como hemos eliminado el 2d, ahora el 4d pasa a ser el índice 2
         System.out.println(miListaDoubles.toString());
 
-        System.out.println(nombres.contains("Carlos")); // false: Ya no está debido a que lo eliminamos antes
+        System.out.println(nombres.contains("Carlos"));
+        // false: Ya no está debido a que lo eliminamos antes
         System.out.println(nombres.contains("Alice")); // true: Sí está
 
         int longList = nombres.size(); // Obtiene el tamaño de la lista
-        int indiceCarlos = nombres.indexOf("Carlos"); // Obtiene el índice del elemento "Carlos" (-1)
+        int indiceCarlos = nombres.indexOf("Carlos");
+        // Obtiene el índice del elemento "Carlos" (-1)
         int indiceAlice = nombres.indexOf("Alice"); // Obtiene el índice del elemento "Carlos" (2)
         System.out.println("El indice de carlos es: " + indiceCarlos); // Imprime -1
         System.out.println("El indice de alice es: " + indiceAlice); // Imprime 1

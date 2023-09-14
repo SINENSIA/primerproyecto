@@ -1,4 +1,4 @@
-package com.sinensia.primerprograma;
+package com.sinensia.primerprograma.felinos;
 
 import com.sinensia.primerprograma.interfaces.Rugible;
 
@@ -6,10 +6,10 @@ import com.sinensia.primerprograma.interfaces.Rugible;
  * Clase Jaguar implementa rugible. emiteSonido() llama a rugir()
  * implementa su propio getEspecie()
  *
- * @see com.sinensia.primerprograma.Felino
+ * @see com.sinensia.primerprograma.felinos.Felino
  * @see com.sinensia.primerprograma.interfaces.Rugible
  * @see com.sinensia.primerprograma.interfaces.Maullable
- * @see com.sinensia.primerprograma.Gato
+ * @see com.sinensia.primerprograma.felinos.Gato
  *
  * @version 1.0
  * @since 2023
@@ -30,8 +30,8 @@ final class Jaguar extends Felino implements Rugible {
      * todos los Felinos emiten sonido, pero cada uno lo hace de una forma.
      * diferente. Los Jaguares rugen.
      *
-     * @see com.sinensia.primerprograma.Felino#emitirSonido()
-     * @see com.sinensia.primerprograma.Jaguar#rugir()
+     * @see com.sinensia.primerprograma.felinos.Felino#emitirSonido()
+     * @see com.sinensia.primerprograma.felinos.Jaguar#rugir()
      * @see com.sinensia.primerprograma.interfaces.Rugible
      * 
      */
@@ -45,8 +45,8 @@ final class Jaguar extends Felino implements Rugible {
      * Se llama desde emitirSonido()
      *
      * @see com.sinensia.primerprograma.interfaces.Rugible
-     * @see com.sinensia.primerprograma.Felino#emitirSonido()
-     * @see com.sinensia.primerprograma.Jaguar#emitirSonido()
+     * @see com.sinensia.primerprograma.felinos.Felino#emitirSonido()
+     * @see com.sinensia.primerprograma.felinos.Jaguar#emitirSonido()
      * 
      */
     @Override
@@ -59,7 +59,7 @@ final class Jaguar extends Felino implements Rugible {
      * Todos los Felinos tienen especie, pero cada uno implementa su propio
      * getEspecie().
      *
-     * @see com.sinensia.primerprograma.Felino#getEspecie()
+     * @see com.sinensia.primerprograma.felinos.Felino#getEspecie()
      * @return especie (String)
      */
     @Override
@@ -72,7 +72,7 @@ final class Jaguar extends Felino implements Rugible {
      * todos los Felinos comen pero cada uno
      * a su manera. Los gatos comen ratones
      *
-     * @see com.sinensia.primerprograma.Felino#comer()
+     * @see com.sinensia.primerprograma.felinos.Felino#comer()
      * 
      */
     @Override

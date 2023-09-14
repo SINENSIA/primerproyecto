@@ -1,4 +1,4 @@
-package com.sinensia.primerprograma;
+package com.sinensia.primerprograma.felinos;
 
 import com.sinensia.primerprograma.interfaces.Maullable;
 import java.util.Objects;
@@ -8,7 +8,7 @@ import java.util.Objects;
  * maullar() implementa su propio getEspecie()
  * No pretendemos que se pueda heredar, por eso es final
  *
- * @see com.sinensia.primerprograma.Felino
+ * @see com.sinensia.primerprograma.felinos.Felino
  * @see com.sinensia.primerprograma.interfaces.Rugible
  * @see com.sinensia.primerprograma.interfaces.Maullable
  * @see com.sinensia.primerprograma.Tigre
@@ -103,7 +103,7 @@ final class Gato extends Felino implements Maullable, Comparable<Gato> {
      * getter de vidas para el gato.
      *
      * @return vidas (int)
-     * @see com.sinensia.primerprograma.Felino
+     * @see com.sinensia.primerprograma.felinos.Felino
      * 
      */
     public int getVidas() {
@@ -149,7 +149,7 @@ final class Gato extends Felino implements Maullable, Comparable<Gato> {
      * Maullable.
      *
      * @see com.sinensia.primerprograma.interfaces.Maullable
-     * @see com.sinensia.primerprograma.Felino#emitirSonido()
+     * @see com.sinensia.primerprograma.felinos.Felino#emitirSonido()
      * 
      */
     @Override
@@ -162,7 +162,7 @@ final class Gato extends Felino implements Maullable, Comparable<Gato> {
      * todos los Felinos comen pero cada uno
      * a su manera. Los gatos comen ratones
      *
-     * @see com.sinensia.primerprograma.Felino#comer()
+     * @see com.sinensia.primerprograma.felinos.Felino#comer()
      * 
      */
     @Override
@@ -174,7 +174,7 @@ final class Gato extends Felino implements Maullable, Comparable<Gato> {
      * override de equals() para el gato.
      * Dos gatos son iguales si tienen la misma placa de identificación
      *
-     * @see com.sinensia.primerprograma.AppFelinos
+     * @see com.sinensia.primerprograma.felinos.AppFelinos
      * @return boolean
      * 
      */
@@ -208,11 +208,16 @@ final class Gato extends Felino implements Maullable, Comparable<Gato> {
      */
     @Override
     public String toString() {
-        return "{" +
-                " vidas='" + getVidas() + "'" +
-                ", nombre='" + getNombre() + "'" +
-                ", placaDeIdentificacion='" + getPlacaDeIdentificacion() + "'" +
-                "}";
+        return "{"
+                + " vidas='"
+                + getVidas()
+                + "'"
+                + ", nombre='"
+                + getNombre() + "'"
+                + ", placaDeIdentificacion='"
+                + getPlacaDeIdentificacion()
+                + "'"
+                + "}";
     }
 
     /**

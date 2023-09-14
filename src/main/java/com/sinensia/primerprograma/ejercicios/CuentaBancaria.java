@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 /**
  * clase para controlar una cuenta bancaria
- * admite depositos, retiros y cambio de titular
+ * admite depositos, retiros y cambio de titular.
  *
  * @version 1.0
  * @since 2023
@@ -76,8 +76,8 @@ public class CuentaBancaria {
         System.out.println("╔═══════════════════════════════╗");
         System.out.println("║   Información de la Cuenta    ║");
         System.out.println("╠═══════════════════════════════╣");
-        System.out.println("║  Titular: " + titular + "              \u2551");
-        System.out.println("║  Saldo: " + saldo + " EUR             \u2551");
+        System.out.println("║  Titular: " + titular + "      ");
+        System.out.println("║  Saldo: " + saldo + " EUR      ");
         System.out.println("╚═══════════════════════════════╝");
         System.out.println(resetColor);
     }

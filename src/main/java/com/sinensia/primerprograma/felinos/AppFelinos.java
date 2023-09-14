@@ -1,4 +1,4 @@
-package com.sinensia.primerprograma;
+package com.sinensia.primerprograma.felinos;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -7,7 +7,10 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * App para probar Felinos.
+ * App para probar Felinos. Suprimimos warnings de tipo S1192.
+ * Ya que repetimos cadenas para mejorar la visibilidad de los ejemplos.
+ * Tambien hacemos una asignacion == con Wrappers para mostrar que
+ * se puede pero no se debería. (java:S4973)
  *
  * @see com.sinensia.primerprograma.Felino
  * @see com.sinensia.primerprograma.Gato
@@ -18,6 +21,7 @@ import java.util.Set;
  * @author Sinensia
  * 
  */
+@SuppressWarnings({ "java:S1192", "java:S4973" })
 public class AppFelinos {
     /**
      * Método main para probar Felinos.
@@ -48,7 +52,9 @@ public class AppFelinos {
             }
             System.out.println(".....................");
 
-            LinkedList<Felino> listaEnlazada = new LinkedList<>(felinos);
+            // Casting a LinkedList
+            List<Felino> listaEnlazada = new LinkedList<>(felinos);
+            listaEnlazada.add(gato); // para evitar unused warning
         }
 
         // Equals??
@@ -79,6 +85,16 @@ public class AppFelinos {
         System.out.println(c.equals(d)); // true
     }
 
+    /**
+     * Método para meter el mismo gato en una lista. El
+     * resultado es una lista con dos gatos ya que ArrayList
+     * permite duplicados.
+     *
+     * @param gato1 (Gato)
+     * @param gato2 (Gato)
+     * @return List Gato
+     * 
+     */
     public static List<Gato> meterElMismoGato(Gato gato1, Gato gato2) {
         List<Gato> gatos = new ArrayList<>();
         gatos.add(gato1);
@@ -86,6 +102,16 @@ public class AppFelinos {
         return gatos;
     }
 
+    /**
+     * Método para meter el mismo gato en un Set. El
+     * resultado es un Set con un solo gato ya que Set
+     * no permite duplicados. Dependemos de que Gato tenga
+     * implementado equals() y hashCode() para que funcione.
+     *
+     * @param gato1 (Gato)
+     * @param gato2 (Gato)
+     * @return Set Gato
+     */
     public static Set<Gato> meterElMismoGatoSinDuplicados(Gato gato1, Gato gato2) {
         Set<Gato> gatos = new HashSet<>();
         gatos.add(gato1);

@@ -9,10 +9,12 @@ package com.sinensia.primerprograma.excepciones;
  */
 public class ExceptionDemo {
     /**
-     * Ejemplo de excepciones en Java.
+     * Ejemplo de excepciones en Java. Suprimimos la advertencia de SonarLint
+     * ya que es para mostrar un ejemplo de NullPointerException.
      *
      * @param args Argumentos de la aplicación.
      */
+    @SuppressWarnings("all")
     public static void main(String[] args) {
         String str = null; // Declaramos una variable de tipo String y la inicializamos con null
         int length = str.length(); // Intentamos obtener la longitud de la cadena

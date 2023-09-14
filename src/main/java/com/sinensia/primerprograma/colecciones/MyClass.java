@@ -1,15 +1,23 @@
 package com.sinensia.primerprograma.colecciones;
 
-// Java program to Sort ArrayList using Comparator
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
-import java.util.*;
-
-// creates the comparator for comparing marks value
-
+/**
+ * Crea un comparador para ordenar una lista de objetos de tipo Students.
+ * por el campo marks
+ */
 public class MyClass {
+    /**
+     * main method.
+     *
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         // create the ArrayList object
-        ArrayList<Students> s = new ArrayList<Students>();
+        List<Students> s = new ArrayList<>();
         s.add(new Students(1, "Rahul", 80));
         s.add(new Students(2, "Anand", 95));
         s.add(new Students(3, "Rohan", 70));
@@ -52,12 +60,14 @@ public class MyClass {
 
         // override the compare() method
         public int compare(Students s1, Students s2) {
-            if (s1.marks == s2.marks)
+            if (s1.marks == s2.marks) {
+
                 return 0;
-            else if (s1.marks > s2.marks)
+            } else if (s1.marks > s2.marks) {
                 return 1;
-            else
+            } else {
                 return -1;
+            }
         }
     }
 }
