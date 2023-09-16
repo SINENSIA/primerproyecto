@@ -41,8 +41,6 @@ abstract class MisTests {
         System.out.println("Media: " + calculadora.calcularMedia());
         calculadora.calcularDesviacionEstandar();
 
-        // System.out.println("Desviación Estándar: " +
-        // calculadora.calcularDesviacionEstandar());
         System.out.println("Moda: " + calculadora.calcularModa());
         int meal = 5;
         int tip = 2;
