@@ -8,7 +8,6 @@ import java.time.LocalTime;
  * Ejemplos de Manejo de fechas.
  */
 public class ManejoDeFechas {
-
     /**
      * Ejemplos de manejo de fechas. Metodo main.
      *
@@ -152,13 +151,11 @@ public class ManejoDeFechas {
         System.out.println("LocalDateTime inicio  del dia Fecha específica: " + inicioDelDia);
 
         // Convertir de String a LocalDateTime
-        LocalDateTime fechaYHora = LocalDateTime.parse("2023-07-30T10:23:00");
-        System.out.println("LocalDateTime Fecha y hora: " + fechaYHora);
+        LocalDateTime fechaHora = LocalDateTime.parse("2023-07-30T10:23:00");
+        System.out.println("LocalDateTime Fecha y hora: " + fechaHora);
 
+        System.out.println(fechaHora.toLocalDate());
 
-        fechaYHora.toLocalDate();
-
-        fechaYHora.toLocalTime();
-
+        System.out.println(fechaHora.toLocalTime());
     }
 }

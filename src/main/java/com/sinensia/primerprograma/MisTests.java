@@ -3,7 +3,9 @@ package com.sinensia.primerprograma;
 import com.sinensia.primerprograma.ejercicios.CalculadoraEstadistica;
 import java.time.LocalDate;
 import java.time.Month;
-
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Clase para pruebas
@@ -13,6 +15,14 @@ abstract class MisTests {
      * Método main para hacer pruebas.
      */
     public static void main(String[] args) {
+
+        List<Double> notas = new ArrayList<>(
+                Arrays.asList(85.5, 90.0, 75.5, 85.5, 90.0, 88.5, 75.5, 92.0, 43.0, 64.0));
+        CalculadoraEstadistica calculadora = new CalculadoraEstadistica(notas);
+
+        System.out.println("Media: " + calculadora.calcularMedia());
+        System.out.println(calculadora.calcularDesviacionEstandar());
+        System.out.println("Moda: " + Arrays.toString(calculadora.calcularModa()));
 
     }
 
@@ -24,11 +34,15 @@ abstract class MisTests {
         CalculadoraEstadistica calculadora1 = new CalculadoraEstadistica(null);
         calculadora1.calcularMedia();
 
-        double[] notas = { 85.5, 90.0, 75.5, 92.0, 85.5, 90.0, 88.5, 75.5, 92.0, 43.0, 64.0 };
+        List<Double> notas = new ArrayList<>(
+                Arrays.asList(85.5, 90.0, 75.5, 92.0, 85.5, 90.0, 88.5, 75.5, 92.0, 43.0, 64.0));
         CalculadoraEstadistica calculadora = new CalculadoraEstadistica(notas);
 
         System.out.println("Media: " + calculadora.calcularMedia());
-        System.out.println("Desviación Estándar: " + calculadora.calcularDesviacionEstandar());
+        calculadora.calcularDesviacionEstandar();
+
+        // System.out.println("Desviación Estándar: " +
+        // calculadora.calcularDesviacionEstandar());
         System.out.println("Moda: " + calculadora.calcularModa());
         int meal = 5;
         int tip = 2;

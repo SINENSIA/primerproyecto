@@ -1,6 +1,5 @@
 package com.sinensia.primerprograma.ejerciciocombinado;
 
-
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -13,12 +12,12 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 /**
- *
  * Clase para manejar los eventos.
+ * Demostración de uso de hilos.
  */
 public class EventoHandler {
     /**
-     * Método main
+     * Método main. Demostración de uso de hilos.
      *
      * @param args argumentos de la linea de comandos
      */
@@ -63,6 +62,13 @@ public class EventoHandler {
             }
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
+            // Si se produce una excepcion en el main, se debe interrumpir el hilo
+            Thread.currentThread().interrupt();
+        } finally {
+            // Cancelar la tarea si no se ha completado
+            if (!future.isDone()) {
+                future.cancel(true);
+            }
         }
 
         // Apagar el ExecutorService una vez que no se enviarán más tareas
@@ -73,6 +79,7 @@ public class EventoHandler {
             executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
+            // Si se produce una excepcion en el main, se debe interrumpir el hilo
             Thread.currentThread().interrupt();
         }
     }

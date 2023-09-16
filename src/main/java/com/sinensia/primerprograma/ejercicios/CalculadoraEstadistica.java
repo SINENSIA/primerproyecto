@@ -1,5 +1,15 @@
 package com.sinensia.primerprograma.ejercicios;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 /**
  * Calculadora de estadística.
  * Permite calcular la media, la desviación típica y la moda de un conjunto de
@@ -14,73 +24,86 @@ package com.sinensia.primerprograma.ejercicios;
  *
  */
 public class CalculadoraEstadistica {
-    private double[] notas;
+    private List<Double> valores;
 
-    public CalculadoraEstadistica(double[] notas) {
-        if (!(notas instanceof double[])) {
-            throw new IllegalArgumentException("El argumento debe ser un entero.");
+    /**
+     * Constructor de la clase. Va a recibir un ArrayList de notas.
+     *
+     * @param valores ArrayList de notas (List Float)
+     */
+    public CalculadoraEstadistica(List<Double> valores) {
+        if (!(valores instanceof List<Double>)) {
+            throw new IllegalArgumentException("El argumento debe ser un List.");
         }
-        this.notas = notas;
+        this.valores = valores;
     }
 
     /**
      * Calcula la media de un conjunto de notas.
      *
-     * @return media (double)
+     * @return media (Float)
      */
     public double calcularMedia() {
-        try {
-            double suma = 0;
-            for (double nota : notas) {
-                suma += nota;
-            }
-            return suma / notas.length;
-        } catch (NullPointerException e) {
-            throw new NullPointerException("El array de notas no puede ser nulo");
+        // Calcular la media
+        double media = valores.stream()
+                .mapToDouble(Double::valueOf)
+                .average()
+                .orElse(0.0);
 
-        }
+        // Valor predeterminado si no hay elementos
+        return Math.round(media * 100d) / 100d;
     }
 
     /**
      * Calcula la desviación típica de un conjunto de notas.
      *
-     * @return la desviación estándar (double)
+     * @return la desviación estándar (Float)
      */
 
     public double calcularDesviacionEstandar() {
         double media = calcularMedia();
-        double sumaDeDiferenciasAlCuadrado = 0;
 
-        for (double nota : notas) {
-            sumaDeDiferenciasAlCuadrado += Math.pow(nota - media, 2); // elevado a 2
-        }
+        double sumaDeCuadrados = valores.stream()
+                .mapToDouble(Double::doubleValue)
+                .map(d -> Math.pow(d - media, 2))
+                .sum();
 
-        double varianza = sumaDeDiferenciasAlCuadrado / notas.length;
-        return Math.sqrt(varianza);
+        // Calcula la desviación estándar aplicando la fórmula
+        return Math.sqrt(sumaDeCuadrados / valores.size());
+
+        // Verificamos si hay una moda
     }
 
     /**
      * Calcula la moda de un conjunto de notas.
      *
-     * @return la moda (double)
+     * @return la moda (Float)
      */
-    public double calcularModa() {
-        int maxFrecuencia = 0;
-        double moda = 0;
+    public double[] calcularModa() {
 
-        for (int i = 0; i < notas.length; i++) {
-            int frecuencia = 0;
-            for (int j = 0; j < notas.length; j++) {
-                if (notas[i] == notas[j]) {
-                    frecuencia++;
-                }
-            }
-            if (frecuencia > maxFrecuencia) {
-                maxFrecuencia = frecuencia;
-                moda = notas[i];
-            }
-        }
+        // Calcular la s frecuencias
+        Map<Double, Long> frecuencias = valores.stream()
+                .collect(Collectors.groupingBy(Double::valueOf, Collectors.counting()));
 
-        return moda;
+        System.out.println(frecuencias);
+        // Utilizamos Streams para encontrar el valor máximo
+        Collection<Long> maxFrequency = frecuencias.entrySet()
+                .stream()
+                .map(Entry::getValue)
+                // .collect(Collectors.groupingBy((entry) -> entry.getValue(),
+                // Collectors.counting()))
+                .max(Comparator.naturalOrder())
+                .stream()
+                .collect(Collectors.toList());
+
+        System.out.println(maxFrequency);
+
+        return frecuencias.entrySet()
+                .stream()
+                .filter(entry -> entry.getValue() == 2L)
+                .map(Map.Entry::getKey)
+                .mapToDouble(Double::doubleValue)
+                .toArray();
+
     }
 }

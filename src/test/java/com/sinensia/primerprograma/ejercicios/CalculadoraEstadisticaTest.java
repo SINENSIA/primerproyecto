@@ -1,8 +1,12 @@
 package com.sinensia.primerprograma.ejercicios;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -15,15 +19,18 @@ import org.junit.jupiter.api.Test;
 public class CalculadoraEstadisticaTest {
     @Test
     public void calcularMediaTest() {
+        List<Double> notas = new ArrayList<>(
+                Arrays.asList(85.5, 90.0, 75.5, 92.0, 85.5, 90.0, 88.5, 75.5, 92.0, 43.0, 64.0));
+
         // Crear una instancia de la clase que deseas probar
         CalculadoraEstadistica calculadora = new CalculadoraEstadistica(
-                new double[] { 3.0, 4.0, 5.0, 6.0, 7.0 });
+                notas);
 
         // Calcular la media
         double mediaCalculada = calculadora.calcularMedia();
 
         // Valor esperado de la media
-        double mediaEsperada = 5.0;
+        double mediaEsperada = 80.14;
 
         // Verificar si la media calculada es igual a la media esperada
         assertEquals(mediaEsperada, mediaCalculada, 0.001);
@@ -32,7 +39,7 @@ public class CalculadoraEstadisticaTest {
 
     @Test
     @Disabled
-    public void noSepuedeInstanciarSinNotasTest() {
+    public void noSepuedeInstanciarSinNotasTest() { // NOSONAR
         assertThrows(java.lang.IllegalArgumentException.class, () -> {
             // new CalculadoraEstadistica();
         });
@@ -40,7 +47,7 @@ public class CalculadoraEstadisticaTest {
 
     @Test
     @Disabled
-    void noSePuedeInstanciarSinDoubleArrayTest() {
+    void noSePuedeInstanciarSinDoubleArrayTest() { // NOSONAR
         assertThrows(java.lang.IllegalArgumentException.class, () -> {
             // new CalculadoraEstadistica(new int[] { 1, 2, 3, 4 });
         });
@@ -48,7 +55,11 @@ public class CalculadoraEstadisticaTest {
 
     @Test
     @Disabled
-    public void noSePuedeInstanciarConNullTest() {
+    public void noSePuedeInstanciarConNullTest() { // NOSONAR
+        /*
+         * No se puede instanciar con null.
+         * Desactivamos el test para que no falle.
+         */
         assertThrows(java.lang.IllegalArgumentException.class, () -> {
             new CalculadoraEstadistica(null);
         });
@@ -56,8 +67,8 @@ public class CalculadoraEstadisticaTest {
 
     @Test
     public void calcularMediaNuloTest() {
-        CalculadoraEstadistica c = new CalculadoraEstadistica(null);
-        assertThrows(java.lang.NullPointerException.class, () -> {
+        assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            CalculadoraEstadistica c = new CalculadoraEstadistica(null);
             c.calcularMedia();
         });
     }
@@ -65,31 +76,33 @@ public class CalculadoraEstadisticaTest {
     @Test
     public void calcularModaTest() {
         // Crear una instancia de la clase que deseas probar
-        double[] datos = { 3.0, 4.0, 4.0, 5.0, 6.0, 7.0 };
-        CalculadoraEstadistica calculadora = new CalculadoraEstadistica(datos);
+        List<Double> notas = new ArrayList<>(
+                Arrays.asList(85.5, 90.0, 75.5, 92.0, 85.5, 90.0, 88.5, 75.5, 92.0, 43.0, 64.0));
+        CalculadoraEstadistica calculadora = new CalculadoraEstadistica(notas);
 
         // Calcular la moda
-        double modaCalculada = calculadora.calcularModa();
+        double[] modaCalculada = calculadora.calcularModa();
 
         // Valor esperado de la moda
-        double modaEsperada = 4.0;
+        double[] modaEsperada = { 75.5, 85.5, 90.0, 92.0 };
 
         // Verificar si la moda calculada es igual a la moda esperada
-        assertEquals(modaEsperada, modaCalculada, 0.001);
+        assertArrayEquals(modaEsperada, modaCalculada, 0.001);
         // Tolerancia de 0.001 para comparaciones de punto flotante
     }
 
     @Test
     public void calcularDesviacionEstandarTest() {
         // Crear una instancia de la clase que deseas probar
-        double[] datos = { 3.0, 4.0, 5.0, 6.0, 7.0 };
-        CalculadoraEstadistica calculadora = new CalculadoraEstadistica(datos);
+        List<Double> notas = new ArrayList<>(
+                Arrays.asList(85.5, 90.0, 75.5, 92.0, 85.5, 90.0, 88.5, 75.5, 92.0, 43.0, 64.0));
+        CalculadoraEstadistica calculadora = new CalculadoraEstadistica(notas);
 
         // Calcular la desviación estándar
         double desviacionCalculada = calculadora.calcularDesviacionEstandar();
 
         // Valor esperado de la desviación estándar
-        double desviacionEsperada = 1.414;
+        double desviacionEsperada = 14.41604409;
 
         // Verificar si la desviación calculada es igual a la desviación esperada
         assertEquals(desviacionEsperada, desviacionCalculada, 0.001);

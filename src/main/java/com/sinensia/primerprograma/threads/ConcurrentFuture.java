@@ -28,14 +28,21 @@ public class ConcurrentFuture {
         executorService.submit(new ContadorRunnable(200, 5)); // Runnable -> hilo paralelo
 
         try {
+
             System.out.println("Contando... ");
-            Future<Integer> futurible = executorService.submit(new ContadorCallable(100, 100));
+            Future<Integer> futurible = executorService.submit(new ContadorCallable(50, 100));
             System.out.println("Sigo con el hilo paralelo mientras espero el resultado...");
+
             // Apaga el ExecutorService una vez que no se enviarán más tareas
             System.out.println("El resultado es: " + futurible.get());
         } catch (InterruptedException | ExecutionException ex) {
             System.err.println("Error al obtener el resultado");
+            Thread.currentThread().getName();
             Thread.currentThread().interrupt(); // Buena práctica reinterrumpir el hilo
+        } finally {
+
+            System.out.println(Thread.currentThread().getName() + " FINALLY---------------------");
+            Thread.currentThread().interrupt();
         }
 
     }

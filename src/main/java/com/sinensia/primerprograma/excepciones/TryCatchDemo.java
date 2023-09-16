@@ -1,7 +1,22 @@
 package com.sinensia.primerprograma.excepciones;
 
+/**
+ * Ejemplo de uso de try-catch.
+ * 
+ */
 public class TryCatchDemo {
 
+    /**
+     * Calcula la longitud de una cadena.
+     * Ejemplo de uso de throws.
+     * Desactivamos el tratamiento de la excepción para que se propague.
+     * SuppressWarnings("null") para evitar el warning de NullPointerException
+     * ya que es para demostración
+     *
+     * @throws NullPointerException si la cadena es null
+     * 
+     */
+    @SuppressWarnings("null")
     public static void main(String[] args) {
         String str = null; // Declaramos una variable de tipo String y la inicializamos con null
         try {

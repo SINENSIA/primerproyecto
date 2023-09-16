@@ -2,7 +2,6 @@ package com.sinensia.primerprograma.texto;
 
 import java.text.DecimalFormat;
 
-
 /**
  * Ejemplo de rendimiento de String vs StringBuilder.
  *
@@ -18,7 +17,7 @@ public class RendimientoStringVsStringBuilder {
      */
     @SuppressWarnings({ "unused", "java:S1643" })
     public static void main(String[] args) {
-        int iterations = 10000;
+        int iterations = 2;
         long startTime;
         long endTime;
 

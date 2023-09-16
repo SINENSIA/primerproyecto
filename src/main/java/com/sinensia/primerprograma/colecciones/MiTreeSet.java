@@ -30,9 +30,11 @@ public class MiTreeSet {
         System.out.println(nombres); // Resultado: [Gondor, Mina Tirith, Rivendel, Rohan]
         // Convertir HashSet a TreeSet
         Set<String> nombresOrdenados = new TreeSet<>(nombres);
+        System.out.println(nombresOrdenados); // Resultado: [Amon Hen, Gondor, Rivendel, Rohan]
 
         // Ahora nombresOrdenados es un TreeSet que mantiene los nombres en orden
-        System.out.println(nombresOrdenados); // Resultado: [Amon Hen, Gondor, Rivendel, Rohan]
+        // System.out.println(nombresOrdenados); // Resultado: [Amon Hen, Gondor,
+        // Rivendel, Rohan]
 
         NavigableSet<Integer> numeros = new TreeSet<>();
         numeros.add(10);

@@ -26,14 +26,24 @@ public class AppFelinos {
     /**
      * Método main para probar Felinos.
      * Ejecutamos algunos métodos de Felino, Gato, Tigre y Jaguar.
+     * Suprimimos warnings de tipo S125. Ya que el codigo está comentado
+     * intencionadamente para explicar los ejemplos.
      */
+
+    @SuppressWarnings("java:S125")
     public static void main(String[] args) {
 
         Felino gato = new Gato("Misifu", 3243521);
         Felino tigre = new Tigre();
         Felino jaguar = new Jaguar();
+        // Cliente cliente = new Cliente("Juan", true);
 
+        // Peluqueria<Cliente> peluqueriaClientes = new Peluqueria(cliente);
+
+        // Y si queremos usar la peluquería sólo para un felino?
+        // peluqueriaClientes.limpiarCortar();
         List<Felino> felinos = new ArrayList<>();
+        //
 
         felinos.add(gato);
         felinos.add(tigre);
@@ -41,10 +51,13 @@ public class AppFelinos {
 
         System.out.println(".....................");
         for (Felino felino : felinos) {
+            Peluqueria<Felino> peluqueria = new Peluqueria<>(felino);
+            peluqueria.limpiarCortar();
             felino.emitirSonido();
             felino.comer();
             System.out.println(felino.getNombreCientifico());
             Felino.getCantidadFelinos();
+
             if (felino instanceof Gato) {
                 Gato gato2 = (Gato) felino;
                 gato2.getNombre();

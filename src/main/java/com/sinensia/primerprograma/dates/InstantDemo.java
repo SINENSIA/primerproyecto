@@ -5,7 +5,16 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
 
+/**
+ * Ejemplos de manejo de fechas.
+ * 
+ */
 public class InstantDemo {
+    /**
+     * Ejemplos de manejo de fechas. Metodo main.
+     *
+     * @param args argumentos de la linea de comandos
+     */
     public static void main(String[] args) {
         // Obtenemos el instante actual en UTC
         Instant now = Instant.now();
