@@ -20,7 +20,7 @@ public class AccesoFichero {
         try (BufferedReader br = new BufferedReader(new FileReader("sinensia.txt"))) {
             br.lines().forEach(linea -> System.out.println(linea)); // O también System.out::println
         } catch (IOException e) { // por si no existe el fichero
-            e.printStackTrace();
+            System.out.println("No se ha podido leer el fichero.");
         }
 
     }

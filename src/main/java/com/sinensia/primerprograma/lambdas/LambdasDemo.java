@@ -4,11 +4,12 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * /* Clase para demostrar los lambdas en java
- * /*
- **/
+ * Clase para demostrar los lambdas en java.
+ * suprimimos el warning de codigo comentado
+ * ya que es para ejemplos
+ */
 class LambdasDemo {
-
+    @SuppressWarnings("java:S125")
     public static void main(String[] args) {
 
         List<Integer> myEnteros = Arrays.asList(1, 2, 3, 4);
@@ -24,15 +25,4 @@ class LambdasDemo {
 
     }
 
-}
-
-class MyClass {
-    public static <T> void myPrint(T value) {
-        System.out.println(value);
-    }
-}
-
-@FunctionalInterface
-interface MyInterface {
-    void myPrint(String value);
 }

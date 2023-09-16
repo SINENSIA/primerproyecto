@@ -18,7 +18,9 @@ public class ThreadsLambda {
                 try {
                     Thread.sleep(500); // Esperar 0.5 segundo
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    System.out.println("El hilo "
+                            + Thread.currentThread().getName()
+                            + " ha sido interrumpido.");
                     Thread.currentThread().interrupt(); // Es una buena práctica
                 }
             }
@@ -32,7 +34,9 @@ public class ThreadsLambda {
                 try {
                     Thread.sleep(1000); // Esperar 1 segundo
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    System.out.println("El hilo "
+                            + Thread.currentThread().getName()
+                            + " ha sido interrumpido.");
                     Thread.currentThread().interrupt(); // Es una buena práctica
                 }
             }

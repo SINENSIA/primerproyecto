@@ -55,7 +55,7 @@ public class CalculadoraFlexible {
 
         } catch (IllegalArgumentException | InputMismatchException e) {
             System.out.println("Argumento no válido.");
-            // e.printStackTrace();
+
         }
     }
 }

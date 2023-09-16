@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Clase para pruebas
+ * Clase para pruebas.
  */
 abstract class MisTests {
     /**
