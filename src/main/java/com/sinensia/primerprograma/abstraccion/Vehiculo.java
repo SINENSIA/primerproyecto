@@ -44,4 +44,8 @@ public abstract class Vehiculo {
         }
     }
 
+    public final void soloLectura() {
+        System.out.println("Este método no se sobreescribe");
+    }
+
 }

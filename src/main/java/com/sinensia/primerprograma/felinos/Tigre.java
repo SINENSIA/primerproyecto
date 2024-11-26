@@ -27,7 +27,7 @@ final class Tigre extends Felino implements Rugible {
      * @see com.sinensia.primerprograma.felinos.Felino#cantidadFelinos
      */
     public Tigre() {
-        super(); // Llamo a super para contar el jaguar
+        super(); // Llamo a super para contar el tigre
     }
 
     /**

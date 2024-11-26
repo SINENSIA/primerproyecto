@@ -24,9 +24,6 @@ public class ArrayNativo {
         // Declarar un array
         int[] miArray = new int[5]; // Crea un array de enteros con capacidad para 5 elementos.
 
-        // Inicializa un array de enteros con valores.
-        int[] numeros = { 1, 2, 3, 4, 5 };
-
         // longitud
         int longitud = miArray.length; // Obtiene la longitud del array.
         System.out.println(longitud);
@@ -38,7 +35,11 @@ public class ArrayNativo {
         // ***ultimoElemento = miArray[longitud];***
         System.out.println("El primer elemento del array es: " + primerElemento);
         System.out.println("El último elemento del array es: " + ultimoElemento);
+
         // Modificación
+        // Inicializa un array de enteros con valores.
+        int[] numeros = { 1, 2, 3, 4, 5 };
+
         miArray[numeros.length - 1] = 20; // Modifica el último elemento del array.
         miArray[0] = 10; // Modifica el primer elemento del array.
 

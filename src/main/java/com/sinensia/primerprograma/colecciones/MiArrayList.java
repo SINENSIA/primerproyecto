@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Ejemplo de uso de ArrayList.
- * 
+ *
  * @version 1.0 desde 1.0
  * @since 1.0
  * @see java.util.ArrayList

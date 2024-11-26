@@ -36,4 +36,14 @@ public class Anfibio extends Vehiculo implements Navegable, Conducible {
         throw new UnsupportedOperationException("Unimplemented method 'getNumRuedas'");
     }
 
+    /**
+     *
+     * No se puede sobreescribir ya que soloLectura es final en la clase padre.
+     * 
+     * @Override
+     *           public void soloLectura() {
+     *
+     *           }
+     **/
+
 }
