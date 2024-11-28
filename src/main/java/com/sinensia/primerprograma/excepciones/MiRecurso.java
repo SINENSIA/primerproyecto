@@ -5,4 +5,8 @@ public class MiRecurso {
     public void operar() {
         System.out.println("Operando con el recurso");
     }
+
+    public void cerrar() {
+        System.out.println("Recurso cerrado correctamente.");
+    }
 }

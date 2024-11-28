@@ -1,5 +1,7 @@
 package com.sinensia.primerprograma.felinos;
 
+import java.util.logging.Logger;
+
 import com.sinensia.primerprograma.interfaces.Rugible;
 
 /**
@@ -18,6 +20,8 @@ import com.sinensia.primerprograma.interfaces.Rugible;
  */
 final class Tigre extends Felino implements Rugible {
     private static final String NOMBRE_CIENTIFICO = "Panthera tigris";
+
+    private static final Logger logger = Logger.getLogger(Tigre.class.getName());
 
     /**
      * Constructor de Tigre por defecto. Aumenta la cantidad de felinos.
@@ -49,7 +53,7 @@ final class Tigre extends Felino implements Rugible {
      */
     @Override
     public void rugir() {
-        System.out.println("El tigre ruge");
+        logger.info("El tigre ruge");
     }
 
     /**
@@ -81,15 +85,15 @@ final class Tigre extends Felino implements Rugible {
     }
 
     /**
-     * override de comer() para el jaguar.
+     * override de comer() para el tigre.
      * todos los Felinos comen pero cada uno
-     * a su manera. Los gatos comen ratones
+     * a su manera. Los tigre comen antílopes.
      *
      * @see com.sinensia.primerprograma.felinos.Felino#comer()
      * 
      */
     @Override
     public void comer() {
-        System.out.println("El tigre come antílopes");
+        logger.info("El tigre come antílopes");
     }
 }

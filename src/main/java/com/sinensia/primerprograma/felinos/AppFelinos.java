@@ -1,5 +1,8 @@
 package com.sinensia.primerprograma.felinos;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -94,7 +97,7 @@ public class AppFelinos {
         System.out.println("Los wrappers se pueden comparar con == pero no se debería");
         System.out.println(c == d); // true
         System.out.println(".....................");
-        System.out.println("Objetos se pueden comparar con equals");
+        System.out.println("Objetos se pueden comparar con equals (mejor)");
         System.out.println(c.equals(d)); // true
     }
 

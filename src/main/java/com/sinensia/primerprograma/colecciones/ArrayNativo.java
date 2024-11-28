@@ -26,14 +26,14 @@ public class ArrayNativo {
 
         // longitud
         int longitud = miArray.length; // Obtiene la longitud del array.
-        System.out.println(longitud);
+        System.out.println(String.format("La longitud del array es de %d", longitud));
 
         // Acceso
         int primerElemento = miArray[0]; // Accede al primer elemento (índice 0) del array.
         int ultimoElemento = miArray[miArray.length - 1]; // Accede al último elemento del array.
         // Si accedemos con longitud tendremos un OutofBoundsException.
         // ***ultimoElemento = miArray[longitud];***
-        System.out.println("El primer elemento del array es: " + primerElemento);
+        System.out.println(String.format("El primer elemento del array es: %s ", primerElemento));
         System.out.println("El último elemento del array es: " + ultimoElemento);
 
         // Modificación

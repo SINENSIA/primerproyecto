@@ -1,5 +1,7 @@
 package com.sinensia.primerprograma.felinos;
 
+import java.util.logging.Logger;
+
 /**
  * Clase abstracta Felino con contador de felinos.
  *
@@ -20,6 +22,9 @@ abstract sealed class Felino permits Gato, Tigre, Jaguar {
 
     // private, que se cambie con el setter
     // por si tenemos que hacer validaciones
+
+    // Logger para los prints
+    private static final Logger logger = Logger.getLogger(Felino.class.getName());
 
     /**
      * getter de nombre para el felino.
@@ -46,6 +51,14 @@ abstract sealed class Felino permits Gato, Tigre, Jaguar {
      */
     protected Felino() {
         cantidadFelinos++;
+        // Sería redundante pero podríamos usar Felino.cantidadFelinos++
+        // En condiciones multihilo deberíamos usar un enfoque diferente, por ejemplo
+        // con synchronized
+        /*
+         * synchronized (Felino.class) {
+         * cantidadFelinos++;
+         * }
+         */
     }
 
     /**
@@ -61,10 +74,10 @@ abstract sealed class Felino permits Gato, Tigre, Jaguar {
     /**
      * Todos los felinos comen. Ahora dejamos
      * que las clases hijas implementen su propio
-     * comportamiento.
+     * comportamiento. Podríamos hacerlo abstracto para obligarlas a implementar.
      */
     protected void comer() {
-        System.out.println("El felino come");
+        logger.info("El felino come");
     }
 
     /**

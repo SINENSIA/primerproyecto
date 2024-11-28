@@ -2,6 +2,7 @@ package com.sinensia.primerprograma.felinos;
 
 import com.sinensia.primerprograma.interfaces.Maullable;
 import java.util.Objects;
+import java.util.logging.Logger;
 
 /**
  * Clase Gato hereda de Felino e implementa Maullable. emiteSonido() llama a
@@ -24,6 +25,7 @@ final class Gato extends Felino implements Maullable, Comparable<Gato> {
     private String nombre;
     private static final String NOMBRE_CIENTIFICO = "Felis silvestris catus";
     private int placaDeIdentificacion;
+    private static final Logger logger = Logger.getLogger(Gato.class.getName());
 
     public int getPlacaDeIdentificacion() {
         return this.placaDeIdentificacion;
@@ -39,11 +41,18 @@ final class Gato extends Felino implements Maullable, Comparable<Gato> {
     private void setPlacaDeIdentificacion(int placaDeIdentificacion) {
         // Aquí podríamos hacer validaciones entre las
         // posibles placas de identificación disponibles
+        if (placaDeIdentificacion <= 0) {
+            throw new IllegalArgumentException("""
+                    La placa de identificación
+                    debe ser un número positivo.
+                     """);
+        }
         this.placaDeIdentificacion = placaDeIdentificacion;
     }
 
     /**
-     * getter de nombre_cientifico para el gato.
+     * getter de nombre_cientifico para el gato. <- Ejemplo comentario redundante.
+     * La semántica del nombrado sería suficiente.
      *
      * @return nombre_cientifico (String)
      */
@@ -91,7 +100,8 @@ final class Gato extends Felino implements Maullable, Comparable<Gato> {
 
     /**
      * setter de nombre para el gato.
-     * sólo los gatos tienen nombre
+     * sólo los gatos tienen nombre otros felinos no
+     * al no ser domésticos
      *
      * @param nombre (String)
      */
@@ -154,7 +164,7 @@ final class Gato extends Felino implements Maullable, Comparable<Gato> {
      */
     @Override
     public void maullar() {
-        System.out.println("El gato maulla");
+        logger.info("El gato maulla");
     }
 
     /**
@@ -167,7 +177,7 @@ final class Gato extends Felino implements Maullable, Comparable<Gato> {
      */
     @Override
     public void comer() {
-        System.out.println("El gato come ratones");
+        logger.info("El gato come ratones");
     }
 
     /**
@@ -208,16 +218,8 @@ final class Gato extends Felino implements Maullable, Comparable<Gato> {
      */
     @Override
     public String toString() {
-        return "{"
-                + " vidas='"
-                + getVidas()
-                + "'"
-                + ", nombre='"
-                + getNombre() + "'"
-                + ", placaDeIdentificacion='"
-                + getPlacaDeIdentificacion()
-                + "'"
-                + "}";
+        return String.format("{vidas='%d', nombre='%s', placaDeIdentificacion='%d'}",
+                getVidas(), getNombre(), getPlacaDeIdentificacion());
     }
 
     /**
@@ -230,6 +232,6 @@ final class Gato extends Felino implements Maullable, Comparable<Gato> {
      */
     @Override
     public int compareTo(Gato o) {
-        return this.getPlacaDeIdentificacion() - o.getPlacaDeIdentificacion();
+        return Integer.compare(this.getPlacaDeIdentificacion(), o.getPlacaDeIdentificacion());
     }
 }

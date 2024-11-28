@@ -1,5 +1,7 @@
 package com.sinensia.primerprograma.felinos;
 
+import java.util.logging.Logger;
+
 import com.sinensia.primerprograma.interfaces.Rugible;
 
 /**
@@ -16,6 +18,8 @@ import com.sinensia.primerprograma.interfaces.Rugible;
  **/
 final class Jaguar extends Felino implements Rugible {
     private static final String NOMBRE_CIENTIFICO = "Panthera onca";
+
+    private static final Logger logger = Logger.getLogger(Jaguar.class.getName());
 
     /**
      * Constructor de Jaguar por defecto. Aumenta la cantidad de felinos.
@@ -51,7 +55,7 @@ final class Jaguar extends Felino implements Rugible {
      */
     @Override
     public void rugir() {
-        System.out.println("El jaguar ruge");
+        logger.info("El jaguar ruge");
     }
 
     /**
@@ -70,14 +74,14 @@ final class Jaguar extends Felino implements Rugible {
     /**
      * override de comer() para el jaguar.
      * todos los Felinos comen pero cada uno
-     * a su manera. Los gatos comen ratones
+     * a su manera. Los jaguares comen capibaras
      *
      * @see com.sinensia.primerprograma.felinos.Felino#comer()
      * 
      */
     @Override
     public void comer() {
-        System.out.println("El jaguar come capibaras");
+        logger.info("El jaguar come capibaras");
     }
 
     /**
