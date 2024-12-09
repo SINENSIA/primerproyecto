@@ -17,7 +17,7 @@ public class RendimientoStringVsStringBuilder {
      */
     @SuppressWarnings({ "unused", "java:S1643" })
     public static void main(String[] args) {
-        int iterations = 2;
+        int iterations = 100000;
         long startTime;
         long endTime;
 

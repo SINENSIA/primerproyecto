@@ -19,7 +19,8 @@ public class TryWithResourceDemo {
         try {
             fileHandler = new FileHandler("sinensia.txt");
         } catch (SecurityException | IOException e) {
-            System.out.println("Se ha producido un error de I/O con el Fichero de log: " + e.getMessage());
+            System.out.println("Se ha producido un error de I/O con el Fichero de log: "
+                    + e.getMessage());
             e.printStackTrace();
         }
 

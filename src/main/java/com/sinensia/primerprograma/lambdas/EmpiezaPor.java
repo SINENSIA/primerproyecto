@@ -22,6 +22,7 @@ public class EmpiezaPor {
         // Filtrar nombres que empiecen con "M" y almacenarlos en una nueva lista
         List<String> empiezanPorMaOrSa = nombres.stream()
                 .filter(nombre -> nombre.startsWith("Ma") || nombre.startsWith("Sa"))
+                .map(String::toUpperCase)
                 .collect(Collectors.toList());
         System.out.println(empiezanPorMaOrSa);
     }

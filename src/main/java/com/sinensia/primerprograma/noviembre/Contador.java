@@ -8,7 +8,7 @@ package com.sinensia.primerprograma.noviembre;
 public class Contador {
 
     public static int totalContadores = 0;
-    private int contadorLocal = 0;
+    public int contadorLocal = 0;
 
     public Contador() {
         totalContadores++;

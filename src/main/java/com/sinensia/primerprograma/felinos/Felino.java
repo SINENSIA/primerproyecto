@@ -11,79 +11,79 @@ import java.util.logging.Logger;
  * @see com.sinensia.primerprograma.Tigre
  * @see com.sinensia.primerprograma.Jaguar
  * 
- * @version 1.0
+ * @version 1.1
  * @since 2023
  * @author Sinensia
  */
 abstract sealed class Felino permits Gato, Tigre, Jaguar {
 
-    // private static pertenece a la clase
+    // Variable estática para contar cada instancia de felino.
     private static int cantidadFelinos = 0;
 
-    // private, que se cambie con el setter
-    // por si tenemos que hacer validaciones
-
-    // Logger para los prints
+    // Logger para registrar actividades.
     private static final Logger logger = Logger.getLogger(Felino.class.getName());
 
     /**
-     * getter de nombre para el felino.
-     * Encapsulamos el nombre para que no se pueda
-     * modificar desde fuera de la clase.
+     * Constructor de Felino.
+     * Incrementa el contador de felinos.
+     */
+    protected Felino() {
+        synchronized (Felino.class) {
+            cantidadFelinos++;
+        }
+        logger.info("Nuevo felino creado. Cantidad total: " + cantidadFelinos);
+        
+    }
+
+    /**
+     * Obtiene el nombre científico del felino.
+     * Método abstracto obligatorio para clases derivadas.
      *
-     * @return nombre (String)
+     * @return Nombre científico del felino.
      */
     protected abstract String getNombreCientifico();
 
     /**
-     * Todos los felinos tienen especie.
-     * Pero obligamos a que las clases hijas
-     * implementen su propio getEspecie()
+     * Obtiene la especie del felino.
+     * Método abstracto obligatorio para clases derivadas.
      *
-     * @return especie (String)
+     * @return Especie del felino.
      */
     protected abstract String getEspecie();
 
     /**
-     * Constructor de Felino por defecto.
-     * Aumenta la cantidad de felinos.
-     * 
+     * Método para emitir el sonido del felino.
+     * Método abstracto obligatorio para clases derivadas.
      */
-    protected Felino() {
-        cantidadFelinos++;
-        // Sería redundante pero podríamos usar Felino.cantidadFelinos++
-        // En condiciones multihilo deberíamos usar un enfoque diferente, por ejemplo
-        // con synchronized
-        /*
-         * synchronized (Felino.class) {
-         * cantidadFelinos++;
-         * }
-         */
+    protected abstract void emitirSonido();
+
+    /**
+     * Método concreto para simular que el felino come.
+     * Puede ser sobrescrito por clases derivadas.
+     */
+    protected void comer() {
+        logger.info("El felino está comiendo.");
     }
 
     /**
-     * getter de cantidadFelinos que es static
-     * para llevar la cuenta de felinos.
+     * Obtiene la cantidad total de felinos creados.
      *
-     * @return cantidadFelinos (int)
+     * @return Cantidad de felinos.
      */
     public static int getCantidadFelinos() {
         return cantidadFelinos;
     }
 
     /**
-     * Todos los felinos comen. Ahora dejamos
-     * que las clases hijas implementen su propio
-     * comportamiento. Podríamos hacerlo abstracto para obligarlas a implementar.
+     * Finaliza la vida de un felino, decrementando el contador.
+     * Este método es opcional, pero útil para ilustrar ciclos de vida.
      */
-    protected void comer() {
-        logger.info("El felino come");
+    public static synchronized void eliminarFelino() {
+        if (cantidadFelinos > 0) {
+            cantidadFelinos--;
+            logger.info("Un felino ha sido eliminado. Cantidad actual: " + cantidadFelinos);
+        } else {
+            logger.warning("No hay felinos que eliminar.");
+        }
     }
-
-    /**
-     * Metodo abstracto emitirSonido() que sera implementado por las clases hijas
-     * obligatoriamente.
-     */
-    protected abstract void emitirSonido();
-
 }

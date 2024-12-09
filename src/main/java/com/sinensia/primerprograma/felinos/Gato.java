@@ -1,131 +1,99 @@
 package com.sinensia.primerprograma.felinos;
 
 import com.sinensia.primerprograma.interfaces.Maullable;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 import java.util.logging.Logger;
 
 /**
- * Clase Gato hereda de Felino e implementa Maullable. emiteSonido() llama a
- * maullar() implementa su propio getEspecie()
- * No pretendemos que se pueda heredar, por eso es final
+ * Clase Gato hereda de Felino e implementa Maullable.
+ * Representa a un gato con características específicas.
  *
+ * @version 1.1
+ * @since 2024
  * @see com.sinensia.primerprograma.felinos.Felino
- * @see com.sinensia.primerprograma.interfaces.Rugible
  * @see com.sinensia.primerprograma.interfaces.Maullable
- * @see com.sinensia.primerprograma.Tigre
- * @see com.sinensia.primerprograma.Jaguar
- * 
- * @version 1.0
- * @since 2023
- * @author Sinensia
- * 
+ *
  */
-final class Gato extends Felino implements Maullable, Comparable<Gato> {
-    private int vidas;
+public final class Gato extends Felino implements Maullable, Comparable<Gato> {
+    private static final int VIDAS_INICIALES = 7;
+
+    // La vidas por defecto son 7 y se reducen cuando se llama al método
+    // perderVida().
+    private int vidas = VIDAS_INICIALES;
+
     private String nombre;
+
+    private Propietario propietario; // Composición, cada Gato tiene un propietario
+    // Historial de propietarios
+    private final List<Propietario> historialPropietarios = new ArrayList<>();
+    // NOMBRE_CIENTIFICO Es una constante independiente de la instancia
+    // siempre podemos conocer el NOMBRE_CIENTIFICO de un Gato
+    // sin necesidad de crear un nuevo Gato
     private static final String NOMBRE_CIENTIFICO = "Felis silvestris catus";
-    private int placaDeIdentificacion;
+    private final int placaDeIdentificacion; // La placa de identificación no se puede modificar
+
     private static final Logger logger = Logger.getLogger(Gato.class.getName());
 
-    public int getPlacaDeIdentificacion() {
-        return this.placaDeIdentificacion;
-    }
-
     /**
-     * setter de placaDeIdentificacion para el gato.
-     * es privado porque no queremos que se pueda cambiar
-     * salvo desde el constructor
+     * Constructor para un gato sin nombre aún ni propietario.
+     * La clínica le poner un chip pero hasta que no sea adoptado
+     * no tendrá nombre ni propietario.
      *
-     * @param placaDeIdentificacion (int)
+     * @param placaDeIdentificacion Identificación del gato.
      */
-    private void setPlacaDeIdentificacion(int placaDeIdentificacion) {
-        // Aquí podríamos hacer validaciones entre las
-        // posibles placas de identificación disponibles
-        if (placaDeIdentificacion <= 0) {
-            throw new IllegalArgumentException("""
-                    La placa de identificación
-                    debe ser un número positivo.
-                     """);
-        }
+    public Gato(int placaDeIdentificacion) {
+        // Inicializa las características comunes de un Felino
+        super(); // como el contador de instancias
         this.placaDeIdentificacion = placaDeIdentificacion;
     }
 
     /**
-     * getter de nombre_cientifico para el gato. <- Ejemplo comentario redundante.
-     * La semántica del nombrado sería suficiente.
+     * Constructor para un Gato con nombre, identificación pero sin propietario.
      *
-     * @return nombre_cientifico (String)
+     * @param nombre                Nombre del gato.
+     * @param placaDeIdentificacion Identificación del gato.
      */
-    public String getNombreCientifico() {
-        return NOMBRE_CIENTIFICO;
-    }
 
-    /**
-     * Constructor de Gato por defecto. Aumenta la cantidad de felinos.
-     * y establece las vidas a 7
-     * está sobrecargado
-     */
-    public Gato(int placaDeIdentificacion) {
-        super(); // Llamo a super para contar el gato
-        this.vidas = 7;
-        this.setPlacaDeIdentificacion(placaDeIdentificacion);
-    }
-
-    /**
-     * Constructor de Gato por defecto. Aumenta la cantidad de felinos.
-     * y establece las vidas a 7
-     * está sobrecargado
-     *
-     * @param nombre                (String)
-     * @param placaDeIdentificacion (int)
-     * 
-     */
     public Gato(String nombre, int placaDeIdentificacion) {
+        // llamamos al constructor de Felino para inicializar las características
+        // comunes como el contador de instancias. No es necesario, pero lo hacemos
+        // explícito para indicar que la superclase realiza tareas comunes
         super();
-        this.vidas = 7; // Todos los gatos tienen 7 vidas
-        this.setNombre(nombre);
-        this.setPlacaDeIdentificacion(placaDeIdentificacion);
-    }
 
-    /**
-     * getter de nombre para el gato.
-     * sólo los gatos tienen nombre
-     *
-     * @return nombre (String)
-     */
-
-    public String getNombre() {
-        return this.nombre;
-    }
-
-    /**
-     * setter de nombre para el gato.
-     * sólo los gatos tienen nombre otros felinos no
-     * al no ser domésticos
-     *
-     * @param nombre (String)
-     */
-    public void setNombre(String nombre) {
         this.nombre = nombre;
+        this.placaDeIdentificacion = placaDeIdentificacion;
+
     }
 
     /**
-     * getter de vidas para el gato.
+     * Constructor para un Gato con nombre, identificación y propietario.
      *
-     * @return vidas (int)
-     * @see com.sinensia.primerprograma.felinos.Felino
-     * 
+     * @param nombre                Nombre del gato.
+     * @param placaDeIdentificacion Identificación del gato.
+     * @param propietario           Propietario del gato.
      */
-    public int getVidas() {
-        return this.vidas;
+
+    public Gato(String nombre, int placaDeIdentificacion, Propietario propietario) {
+        // llamamos al constructor de Felino para inicializar las características
+        // comunes como el contador de instancias. No es necesario, pero lo hacemos
+        // explícito para indicar que la superclase realiza tareas comunes
+        super();
+        this.placaDeIdentificacion = validarPlaca(placaDeIdentificacion);
+        this.nombre = nombre;
+        this.propietario = propietario;
+
+        agregarPropietarioAlHistorial(propietario);
+
     }
 
     /**
-     * getter de Especie para el gato.
-     * todos los Felinos están obligados a tener especie
-     * pero cada uno implementa su propio getEspecie()
+     * Obtiene la especie del gato.
      *
-     * @return especie (String)
+     * @return Nombre de la especie (String).
      */
     @Override
     public String getEspecie() {
@@ -133,105 +101,178 @@ final class Gato extends Felino implements Maullable, Comparable<Gato> {
     }
 
     /**
-     * override de emitirSonido() llama a maullar()
-     * todos los Felinos emiten sonido pero cada uno
-     * lo hace de una forma diferente.
+     * Obtiene el nombre científico del gato.
+     *
+     * @return Nombre científico (String).
      */
     @Override
-    protected void emitirSonido() {
+    protected String getNombreCientifico() {
+        return NOMBRE_CIENTIFICO;
+    }
+
+    /**
+     * El gato emite un sonido (maúlla).
+     * El gato implementa obligatoriamente (abstracto) el método emitirSonido de
+     * Felino
+     * pero llama maullar() (iimplementación de interfaz Maullable).
+     *
+     * @see com.sinensia.primerprograma.interfaces.Maullable#maullar()
+     * @see com.sinensia.primerprograma.felinos.Felino#emitirSonido()
+     */
+    @Override
+    protected synchronized void emitirSonido() {
         maullar();
     }
 
     /**
-     * setter de vidas para el gato.
-     * Si necesitásemos hacer validaciones lo hemos encapsulado
+     * Implementación de maullar para la interfaz Maullable.
      *
-     * @param vidas (int)
-     */
-    public void setVidas(int vidas) {
-        this.vidas = vidas;
-    }
-
-    /**
-     * override de maullar() para el gato.
-     * todos los Felinos emiten sonido pero cada uno
-     * a su manera. Los gatos maullan y por eso implementan
-     * Maullable.
-     *
-     * @see com.sinensia.primerprograma.interfaces.Maullable
-     * @see com.sinensia.primerprograma.felinos.Felino#emitirSonido()
+     * @see com.sinensia.primerprograma.interfaces.Maullable#maullar()
      * 
      */
     @Override
     public void maullar() {
-        logger.info("El gato maulla");
+        logger.info("El gato maúlla: ¡Miau!");
     }
 
     /**
-     * override de comer() para el gato.
-     * todos los Felinos comen pero cada uno
-     * a su manera. Los gatos comen ratones
+     * El gato come ratones. Cada felino come cosas diferentes, pero todos comen.
+     * Si olvidamos implementar estemétodo, se usa la implementación por defecto
+     * de comer() de Felino.
      *
      * @see com.sinensia.primerprograma.felinos.Felino#comer()
-     * 
      */
     @Override
-    public void comer() {
-        logger.info("El gato come ratones");
+    public synchronized void comer() {
+        logger.info("El gato come ratones.");
     }
 
     /**
-     * override de equals() para el gato.
-     * Dos gatos son iguales si tienen la misma placa de identificación
-     *
-     * @see com.sinensia.primerprograma.felinos.AppFelinos
-     * @return boolean
-     * 
+     * Reduce las vidas del gato. No permite valores negativos (validación)
      */
-    @Override
-    public boolean equals(Object o) {
-        if (o == this) {
-            return true;
+    public synchronized void perderVida() {
+        if (vidas > 0) {
+            vidas--;
+            logger.info("El gato ha perdido una vida. Vidas restantes: " + vidas);
+        } else {
+            logger.warning("El gato ya no tiene vidas restantes.");
         }
-        if (!(o instanceof Gato)) {
-            return false;
-        }
-        Gato gato = (Gato) o;
-        return Objects.equals(placaDeIdentificacion, gato.getPlacaDeIdentificacion());
     }
 
     /**
-     * override de hashCode() para el gato.
-     * Dos gatos son iguales si tienen la misma placa de identificación
-     * 
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(placaDeIdentificacion);
-    }
-
-    /**
-     * override de toString() para el gato.
-     * Nos permite imprimir el gato como un String
+     * Obtiene el número de vidas restantes.
      *
-     * @return String
+     * @return Número de vidas (int).
+     */
+    public int getVidas() {
+        return vidas;
+    }
+
+    /**
+     * Obtiene el propietario del gato.
+     *
+     * @return Propietario (Propietario).
+     * @see com.sinensia.primerprograma.felinos.Propietario
+     */
+    public Propietario getPropietario() {
+        return propietario;
+    }
+
+    /**
+     * Establece el propietario del gato.
+     *
+     * @param propietario Nuevo propietario (Propietario).
+     * @see com.sinensia.primerprograma.felinos.Propietario
+     */
+    public void setPropietario(Propietario propietario) {
+        this.propietario = propietario;
+        agregarPropietarioAlHistorial(propietario);
+    }
+
+    /**
+     * Método privado para añadir un propietario al historial si no es nulo.
+     *
+     * @param propietario Propietario que se intenta añadir al historial.
+     */
+
+    private void agregarPropietarioAlHistorial(Propietario propietario) {
+
+        try {
+            historialPropietarios.add(propietario); // Puede lanzar NullPointerException
+        } catch (NullPointerException e) {
+            logger.warning("No se pudo añadir un propietario al historial porque es nulo.");
+        } catch (Exception e) {
+            // Bugs
+            logger.warning(String.format("Ha ocurrido una excepción inesperada. %s",
+                    e.getMessage()));
+        }
+    }
+
+    public List<Propietario> getHistorialPropietarios() {
+        return Collections.unmodifiableList(historialPropietarios); // Devuelve una lista inmutable
+    }
+
+    /**
+     * Representación en cadena del Gato.
+     *
+     * @return Descripción del gato (String).
      */
     @Override
     public String toString() {
-        return String.format("{vidas='%d', nombre='%s', placaDeIdentificacion='%d'}",
-                getVidas(), getNombre(), getPlacaDeIdentificacion());
+        return String.format("{nombre='%s', vidas=%d, propietario=%s, placa=%d}",
+                nombre, vidas, propietario, placaDeIdentificacion);
     }
 
     /**
-     * override de compareTo() para el gato.
-     * Nos permite comparar dos gatos por su placa de identificación
-     * y así ordenarlos
+     * Compara este gato con otro gato por su placa de identificación.
      *
-     * @param o (Gato )
-     * @return int
+     * @param otroGato Otro gato.
+     * @return Resultado de la comparación (int).
      */
     @Override
-    public int compareTo(Gato o) {
-        return Integer.compare(this.getPlacaDeIdentificacion(), o.getPlacaDeIdentificacion());
+    public int compareTo(Gato otroGato) {
+        return Integer.compare(this.placaDeIdentificacion, otroGato.placaDeIdentificacion);
     }
+
+    // gato1.equals(gato2);
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Gato gato = (Gato) obj;
+
+        return Objects.equals(placaDeIdentificacion, gato.placaDeIdentificacion);
+    }
+
+    /**
+     * Obtiene el nombre del gato.
+     *
+     * @return Nombre del gato (String).
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * Establece el nombre del gato.
+     *
+     * @param nombre Nombre del gato (String).
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    private int validarPlaca(int placa) {
+        if (placa <= 0) {
+            throw new IllegalArgumentException("La placa debe ser un número positivo.");
+        }
+        return placa;
+    }
+
 }

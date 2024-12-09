@@ -5,7 +5,7 @@ package com.sinensia.primerprograma.noviembre;
  */
 public class ThisAmbito {
     private int valor;
-
+    
     public int asignarValor(int valor) {
         
         this.valor = valor;

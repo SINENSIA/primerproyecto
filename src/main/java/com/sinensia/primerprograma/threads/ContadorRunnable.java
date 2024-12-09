@@ -39,7 +39,8 @@ public class ContadorRunnable implements Runnable {
                 System.err.println("Error al parar el hilo");
                 Thread.currentThread().interrupt(); // Buena práctica reinterrumpir el hilo
             } finally {
-                System.out.println("Estoy en el HILO: ---------------" + Thread.currentThread().getName()
+                System.out.println("Estoy en el HILO: ---------------"
+                        + Thread.currentThread().getName()
                         + " ------------------" + contador);
                 Thread.currentThread().getName();
             }

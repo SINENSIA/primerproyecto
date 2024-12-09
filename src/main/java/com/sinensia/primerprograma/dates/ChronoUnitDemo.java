@@ -11,8 +11,11 @@ public class ChronoUnitDemo {
      * @param args argumentos de la linea de comandos
      */
     public static void main(String[] args) {
-        ZonedDateTime fechaInicio = ZonedDateTime.of(2023, 9, 20, 9, 0, 0, 0, ZoneId.of("Europe/Madrid"));
-        ZonedDateTime fechaFin = ZonedDateTime.of(2023, 9, 20, 18, 0, 0, 0, ZoneId.of("Europe/Madrid"));
+        ZonedDateTime fechaInicio = ZonedDateTime.of(2023, 9, 20, 9, 0, 0, 0,
+                ZoneId.of("Europe/Madrid"));
+        ZonedDateTime fechaFin = ZonedDateTime.of(2023, 9, 20, 18, 0, 0, 0,
+                ZoneId.of("Europe/Madrid"));
+
         System.out.println("Fecha inicio: " + fechaInicio);
         System.out.println("Fecha fin: " + fechaFin);
 

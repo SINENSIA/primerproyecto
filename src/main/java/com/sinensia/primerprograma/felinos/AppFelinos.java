@@ -1,8 +1,6 @@
 package com.sinensia.primerprograma.felinos;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -74,8 +72,18 @@ public class AppFelinos {
         }
 
         // Equals??
+
         Gato gato1 = new Gato("Misifu", 3243521);
         Gato gato2 = new Gato("Misifu", 3243521);
+        System.out.println(".....................");
+        System.out.println(".....................");
+        System.out.println(".....................");
+        System.out.println(gato1.toString());
+        System.out.println(gato2.toString());
+        System.out.println(".....................");
+        System.out.println(".....................");
+        System.out.println(".....................");
+        System.out.println(".....................");
         System.out.println("Si hacemos override de equals() en Gato, podemos comparar objetos");
         System.out.println(gato1.equals(gato2)); // true
         System.out.println(".....................");
@@ -99,6 +107,13 @@ public class AppFelinos {
         System.out.println(".....................");
         System.out.println("Objetos se pueden comparar con equals (mejor)");
         System.out.println(c.equals(d)); // true
+
+        
+        System.out.println(".........Propietario............");
+        System.out.println("................................");
+        Propietario myself = new Propietario("Carlos", "Europa");
+        Felino trasgo = new Gato("Trasgo", 234878554, myself);
+        System.out.println(trasgo); 
     }
 
     /**

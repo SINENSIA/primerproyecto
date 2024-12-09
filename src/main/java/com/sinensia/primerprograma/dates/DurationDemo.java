@@ -41,7 +41,8 @@ public class DurationDemo {
         double segundosDecimal = duracion.toSeconds();
         System.out.println("Segundos: " + segundosDecimal);
         // Define un patrón de formato para mostrar más decimales
-        String patron = "0.00000"; // Aquí puedes ajustar la cantidad de decimales que deseas mostrar
+        // Aquí se puede ajustar la cantidad de decimales que deseas mostrar
+        String patron = "0.00000"; 
 
         // Crea un objeto DecimalFormat con el patrón
         DecimalFormat formato = new DecimalFormat(patron);

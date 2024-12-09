@@ -5,16 +5,21 @@ package com.sinensia.primerprograma.noviembre;
  *
  * @author Carlos
  * @version 1.0
+ * @see java.lang.System
+ * @since 2024
  */
+
 public class AmbitoVariable {
+
     static int variableGlobal = 10;
     int prueba = 12;
 
     public static int metodoAmbito() {
         int variableLocalMetodo = 7;
+
         return variableLocalMetodo;
     }
-
+ 
     /**
      * Main method. Utiliza variables locales, globales, y métodos.
      *

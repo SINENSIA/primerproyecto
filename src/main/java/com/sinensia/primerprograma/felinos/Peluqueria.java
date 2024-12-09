@@ -31,7 +31,7 @@ public class Peluqueria<T extends Felino> {
                 + (felino instanceof Gato
                         ? felino.getEspecie() + " " + ((Gato) felino).getNombre()
                         : felino.getEspecie());
-
+        
         logger.info(mensaje);
     }
 
