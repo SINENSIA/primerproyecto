@@ -1,5 +1,6 @@
 package com.sinensia.primerprograma.lambdas;
 
+import com.sinensia.primerprograma.genericos.MyClass;
 import java.util.Arrays;
 import java.util.List;
 

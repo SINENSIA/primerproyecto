@@ -77,7 +77,7 @@ public class Operadores {
         // Operadores de concatenación
         String nombre = "Carlos";
         String apellido = "ApellidoFake";
-        String nombreCompleto = nombre + " " + apellido; // "Carlos Arranz"
+        String nombreCompleto = nombre + " " + apellido; // "Carlos ApellidoFake"
 
         // Operador instanceof
         Object objeto = new Object();

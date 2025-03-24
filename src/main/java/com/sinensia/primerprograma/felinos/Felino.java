@@ -1,5 +1,6 @@
 package com.sinensia.primerprograma.felinos;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -32,7 +33,7 @@ abstract sealed class Felino permits Gato, Tigre, Jaguar {
             cantidadFelinos++;
         }
         logger.info("Nuevo felino creado. Cantidad total: " + cantidadFelinos);
-        
+
     }
 
     /**
@@ -84,6 +85,18 @@ abstract sealed class Felino permits Gato, Tigre, Jaguar {
             logger.info("Un felino ha sido eliminado. Cantidad actual: " + cantidadFelinos);
         } else {
             logger.warning("No hay felinos que eliminar.");
+        }
+    }
+
+    public static void procesarFelinos(List<? extends Felino> felinos, Accionable accion) {
+        for (Felino felino : felinos) {
+            accion.aplicar(felino);
+        }
+    }
+
+    public static void simularReaccion(List<? extends Felino> felinos, Reaccionable reaccion) {
+        for (Felino f : felinos) {
+            reaccion.reaccionar(f);
         }
     }
 }

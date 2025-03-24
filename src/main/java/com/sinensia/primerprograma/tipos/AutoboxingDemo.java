@@ -44,7 +44,9 @@ public class AutoboxingDemo {
 
         Integer c = 128;
         Integer d = 128;
+        System.out.println("-- Ojo! 128 vs 128 fuera de la cache --");
         System.out.println(c == d); // Salida: false <------- !!!!!
+        System.out.println("----Pero equals es la forma correcta:----");
         System.out.println(c.equals(d)); // Salida: true
         // En el segundo caso, el valor de a y d es el mismo, pero el objeto Integer
         // se crea en dos puntos distintos en la memoria, lo que provoca que la
@@ -52,6 +54,7 @@ public class AutoboxingDemo {
 
         Integer e = 127;
         Integer f = 127;
+        System.out.println("-- 127 es igual a 127? --");
         System.out.println(e == f); // Salida: true
         System.out.println(e.equals(f)); // Salida: true
         // En el primer caso, el valor de e y f es el mismo, pero el objeto Integer

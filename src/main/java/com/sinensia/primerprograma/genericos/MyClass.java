@@ -1,9 +1,10 @@
-package com.sinensia.primerprograma.lambdas;
+package com.sinensia.primerprograma.genericos;
 
 /**
  * Simple clase de ejemplo.
  */
-class MyClass {
+
+public class MyClass {
     private MyClass() {
         // Contructor privado para que no se pueda instanciar
     }
@@ -11,4 +12,5 @@ class MyClass {
     public static <T> void myPrint(T value) {
         System.out.println(value);
     }
+
 }

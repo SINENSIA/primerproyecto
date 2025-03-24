@@ -1,0 +1,12 @@
+package com.sinensia.primerprograma.felinos;
+
+/**
+ *
+ * <p>
+ * Los felinos reacciones ante estímulos.
+ * </p>
+ */
+@FunctionalInterface
+public interface Reaccionable {
+    void reaccionar(Felino felino);
+}

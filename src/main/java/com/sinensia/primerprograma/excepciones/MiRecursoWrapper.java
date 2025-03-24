@@ -14,14 +14,7 @@ public class MiRecursoWrapper implements AutoCloseable {
     System.out.println("Recurso inicializado en el wrapper.");
   }
 
-  @Override
-  public void close() {
-    if (miRecurso != null) {
-      System.out.println("Cerrando el recurso desde el wrapper...");
-      miRecurso.cerrar(); // Suponiendo que MiRecurso tiene un método cerrar()
-      miRecurso = null; // Liberar la referencia para evitar reutilización accidental
-    }
-  }
+  
 
   public MiRecurso getMiRecurso() {
     return miRecurso;
@@ -29,5 +22,14 @@ public class MiRecursoWrapper implements AutoCloseable {
 
   public void setMiRecurso(MiRecurso miRecurso) {
     this.miRecurso = miRecurso;
+  }
+
+  @Override
+  public void close() {
+    if (miRecurso != null) {
+      System.out.println("Cerrando el recurso desde el wrapper...");
+      miRecurso.cerrar(); // Suponiendo que MiRecurso tiene un método cerrar()
+      miRecurso = null; // Liberar la referencia para evitar reutilización accidental
+    }
   }
 }

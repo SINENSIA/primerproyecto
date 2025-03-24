@@ -1,6 +1,5 @@
 package com.sinensia.primerprograma.felinos;
 
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -75,6 +74,7 @@ public class AppFelinos {
 
         Gato gato1 = new Gato("Misifu", 3243521);
         Gato gato2 = new Gato("Misifu", 3243521);
+
         System.out.println(".....................");
         System.out.println(".....................");
         System.out.println(".....................");
@@ -105,15 +105,36 @@ public class AppFelinos {
         System.out.println("Los wrappers se pueden comparar con == pero no se debería");
         System.out.println(c == d); // true
         System.out.println(".....................");
-        System.out.println("Objetos se pueden comparar con equals (mejor)");
+        System.out.println("Objetos se pueden comparar con equals (siempre)");
         System.out.println(c.equals(d)); // true
 
-        
         System.out.println(".........Propietario............");
         System.out.println("................................");
         Propietario myself = new Propietario("Carlos", "Europa");
         Felino trasgo = new Gato("Trasgo", 234878554, myself);
-        System.out.println(trasgo); 
+        System.out.println(trasgo);
+
+
+        // Uso de interfaces funcionales
+        System.out.println(".........Interfaces funcionales............");
+        Felino.procesarFelinos(felinos, felino -> {
+            System.out.println("Especie: " + felino.getEspecie());
+            felino.emitirSonido();
+        });
+
+
+        // Definimos estímulos como lambdas:
+        Reaccionable reaccionSonidoFuerte = felino -> System.out.println(
+                felino.getEspecie() + " huye del sonido.");
+
+        System.out.println("** Estímulo: sonido fuerte **");
+        Felino.simularReaccion(felinos, reaccionSonidoFuerte);
+
+        Reaccionable reaccionComida = felino -> System.out
+                .println(felino.getEspecie() + " se acerca sigilosamente a la comida.");
+
+        System.out.println("\n** Estímulo: olor a comida **");
+        Felino.simularReaccion(felinos, reaccionComida);
     }
 
     /**

@@ -26,7 +26,8 @@ public class TryWithResourceDemo {
 
         logger.addHandler(fileHandler);
         // Emitir un registro
-        logger.log(Level.INFO, "Este es un mensaje de registro.");
+        
+        logger.log(Level.WARNING, "Este es un mensaje de registro.");
         try (BufferedReader reader = new BufferedReader(new FileReader("sinensia.txt"))) {
             String line = reader.readLine();
             System.out.println(line);

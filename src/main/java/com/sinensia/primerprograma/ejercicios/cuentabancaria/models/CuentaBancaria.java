@@ -1,8 +1,11 @@
-package com.sinensia.primerprograma.ejercicios;
+package com.sinensia.primerprograma.ejercicios.cuentabancaria.models;
 
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+
+import com.sinensia.primerprograma.ejercicios.cuentabancaria.helpers.TextDecorator;
+import com.sinensia.primerprograma.ejercicios.cuentabancaria.helpers.ValidadorCantidad;
 
 /**
  * clase para controlar una cuenta bancaria
@@ -14,16 +17,20 @@ import java.util.Scanner;
  */
 
 public class CuentaBancaria {
+
     private double saldo;
     private String titular;
     private static final double SALDO_MINIMO = 100.0; // Variable final y estática
-    String greenColor = "\u001B[32m";
-    String resetColor = "\u001B[0m";
-    String redColor = "\u001B[31m";
-    String blueColor = "\u001B[34m";
 
     // Constructor para inicializar la cuenta con saldo y titular
+    /**
+     * Contructor.
+     *
+     * @param saldoInicial saldo inical de la cuenta
+     * @param titular      Persona titular
+     */
     public CuentaBancaria(double saldoInicial, String titular) {
+        ValidadorCantidad.validarCantidad(saldoInicial); // Validación al crear cuenta
         this.saldo = saldoInicial;
         this.titular = titular;
     }
@@ -44,12 +51,14 @@ public class CuentaBancaria {
      */
 
     public void retirarConSaldoMinimo(double cantidad) {
+        ValidadorCantidad.validarCantidad(cantidad); // Validación dentro del método
+
         if (tieneSaldoSuficiente(cantidad) && (saldo - cantidad) >= SALDO_MINIMO) {
             saldo -= cantidad;
-            System.out.println("Retiro de " + cantidad + " realizado.");
+            System.out.println(TextDecorator.success("Retiro de " + cantidad + " realizado."));
         } else {
-            System.out.println(
-                    redColor + "--- Saldo insuficiente o saldo mínimo alcanzado. ---" + resetColor);
+            throw new IllegalArgumentException(
+                    "Saldo insuficiente o no se puede bajar del saldo mínimo.");
         }
     }
 
@@ -59,11 +68,10 @@ public class CuentaBancaria {
      * @param cantidad cantidad a depositar (double)
      */
     public void depositar(double cantidad) {
+        ValidadorCantidad.validarCantidad(cantidad); // Validación dentro del método
 
         saldo += cantidad;
-        System.out.println(greenColor);
-        System.out.println("Depósito de " + cantidad + " realizado.");
-        System.out.println(resetColor);
+        System.out.println(TextDecorator.success("Depósito de " + cantidad + " realizado."));
     }
 
     /**
@@ -71,23 +79,25 @@ public class CuentaBancaria {
      * Muestra el titular y el saldo.
      */
     public void mostrarInformacion() {
-
-        System.out.println(greenColor);
-        System.out.println("╔═══════════════════════════════╗");
-        System.out.println("║   Información de la Cuenta    ║");
-        System.out.println("╠═══════════════════════════════╣");
-        System.out.println("║  Titular: " + titular + "              ║");
-        System.out.println("║  Saldo: " + saldo + " EUR             ║");
-        System.out.println("╚═══════════════════════════════╝");
-        System.out.println(resetColor);
+        System.out.println(TextDecorator.formatBox("Información de la Cuenta",
+                "Titular: " + titular + "\n  Saldo: " + saldo + " EUR"));
     }
 
     public String getTitular() {
         return titular;
     }
 
+    /**
+     * Método para cambiar el titular de la cuenta.
+     *
+     * @param titular El nuevo nombre del titular de la cuenta.
+     */
     public void setTitular(String titular) {
-        System.out.println("Cambiando titular de " + this.titular + " a " + titular);
+        if (titular == null || titular.trim().isEmpty()) {
+            throw new IllegalArgumentException("El titular no puede estar vacío.");
+        }
+        System.out.println(TextDecorator.info(
+                "Cambiando titular de " + this.titular + " a " + titular));
         this.titular = titular;
     }
 

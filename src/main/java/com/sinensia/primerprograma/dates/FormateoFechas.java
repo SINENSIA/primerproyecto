@@ -1,9 +1,11 @@
 package com.sinensia.primerprograma.dates;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import java.util.function.Predicate;
 
 /**
  * Ejemplos de Manejo de fechas.
@@ -23,6 +25,11 @@ public class FormateoFechas {
      * @param args argumentos de la linea de comandos
      */
     public static void main(String[] args) {
+
+        LocalTime hora = LocalTime.of(10, 23, 45);
+        System.out.println(hora.getSecond());
+        Predicate<LocalTime> esAntesDe = hora::isBefore;
+        System.out.println(esAntesDe.test(LocalTime.now()));
 
         DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
