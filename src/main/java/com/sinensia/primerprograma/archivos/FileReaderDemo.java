@@ -21,6 +21,7 @@ public class FileReaderDemo {
      */
     public static void main(String[] args) {
         // Especificar el directorio y el archivo
+        
         File directorio = new File("DirectorioSinensia");
         File archivo = new File(directorio, "prueba.txt");
 
@@ -28,7 +29,8 @@ public class FileReaderDemo {
             int charRead;
 
             while ((charRead = reader.read()) != -1) {
-                System.out.print((char) charRead);
+                System.out.println((char) charRead);
+
             }
         } catch (IOException e) {
             e.printStackTrace();

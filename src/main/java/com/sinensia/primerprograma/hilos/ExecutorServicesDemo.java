@@ -1,4 +1,4 @@
-package com.sinensia.primerprograma.threads;
+package com.sinensia.primerprograma.hilos;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

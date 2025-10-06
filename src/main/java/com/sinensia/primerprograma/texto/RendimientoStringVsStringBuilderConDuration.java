@@ -4,7 +4,6 @@ import java.text.DecimalFormat;
 import java.time.Duration;
 import java.time.Instant;
 
-
 /**
  * Ejemplo de rendimiento de String vs StringBuilder.
  *
@@ -20,14 +19,14 @@ public class RendimientoStringVsStringBuilderConDuration {
      */
     @SuppressWarnings({ "unused", "java:S1643" })
     public static void main(String[] args) {
-        int iterations = 10000;
+        int iterations = 100000;
         Instant startTime;
         Instant endTime;
 
         // Usando String para concatenar
         String strConcatenated = "";
         startTime = Instant.now();
-
+        System.out.println("Comparando rendimiento de String vs StringBuilder");
         for (int i = 0; i < iterations; i++) {
 
             strConcatenated += "Hola";
@@ -41,7 +40,7 @@ public class RendimientoStringVsStringBuilderConDuration {
 
         String stringTimeFormatted = decimalFormatString.format(stringTime);
         System.out.println(
-                "Tiempo usando String: "
+                "\rTiempo usando String: "
                         + stringTimeFormatted + " milisegundos");
 
         // Usando StringBuilder para concatenar
@@ -57,7 +56,7 @@ public class RendimientoStringVsStringBuilderConDuration {
         String stringBuilderTimeFormatted = decimalFormatStringBuilder.format(
                 stringBuilderTime);
         System.out.println(
-                "Tiempo usando StringBuilder: "
+                "\rTiempo usando StringBuilder: "
                         + stringBuilderTimeFormatted + " milisegundos");
     }
 }

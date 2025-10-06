@@ -1,10 +1,10 @@
 package com.sinensia.primerprograma.tipos;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 /**
- * <p>Demo con BigDecimal
+ * <p>
+ * Demo con BigDecimal
  */
 public class BigDecimalDemo {
     public static void main(String[] args) {

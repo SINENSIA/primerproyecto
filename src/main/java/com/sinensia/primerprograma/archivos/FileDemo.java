@@ -22,7 +22,7 @@ public class FileDemo {
         File archivo = new File("sinensia.txt");
 
         String directorioActual = System.getProperty("user.dir");
-        System.out.println("Directorio actual: " + directorioActual);
+        System.out.println("\r\nDirectorio actual: " + directorioActual);
         // debes situar el fichero sinensia.txt en el directorio actual
 
         if (archivo.exists()) {

@@ -91,7 +91,7 @@ public class CalculadoraEstadistica {
                 // Collectors.counting()))
                 .max(Comparator.naturalOrder())
                 .stream()
-                .collect(Collectors.toList());
+                .toList();
 
         System.out.println(maxFrequency);
 

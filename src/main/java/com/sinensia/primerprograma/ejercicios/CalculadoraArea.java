@@ -39,9 +39,9 @@ public class CalculadoraArea {
 
         } catch (InputMismatchException e) {
             System.out.println("Valor incorrecto.");
-            e.printStackTrace();
+            e.printStackTrace(); // esto para el ejericio vale pero si no al logger interno.
         }
-        // todo lo demas es un bug
+        //  lo demas es un bug
     }
 
     static double leerDesdeScanner(Scanner scanner) {

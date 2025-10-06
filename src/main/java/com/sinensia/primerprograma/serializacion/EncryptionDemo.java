@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -52,8 +53,9 @@ public class EncryptionDemo {
              * Sólo con el propósito de illustrar en el código
              * que la contraseña NUNCA DEBE ESTAR EN EL CÓDIGO FUENTE!!
              */
-            SecretKeySpec secretKey = new SecretKeySpec(
-                    "L_@·AUT_Veniam@aut_Facia.mAA_###".getBytes(), "AES");
+            MessageDigest sha = MessageDigest.getInstance("SHA-256");
+            byte[] key = sha.digest("L_@·AUT_Veniam@aut_Facia.mAA_###".getBytes("UTF-8"));
+            SecretKeySpec secretKey = new SecretKeySpec(key, "AES");
             /*
              * See coment above. This password has no use!
              * In a real application, you would store the key in a PROTECTED
@@ -77,7 +79,7 @@ public class EncryptionDemo {
             ByteArrayInputStream decryptedByteStream = new ByteArrayInputStream(decryptedData);
             ObjectInputStream decryptedObjectStream = new ObjectInputStream(decryptedByteStream);
             Person deserializedPerson = (Person) decryptedObjectStream.readObject();
-
+            System.out.println("Deserialized (y desencriptado) data: " + deserializedPerson);
             // Ahora tienes el objeto desencriptado
             System.out.println("Nombre: " + deserializedPerson.getName());
             System.out.println("Edad: " + deserializedPerson.getAge());

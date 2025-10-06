@@ -1,4 +1,4 @@
-package com.sinensia.primerprograma.threads;
+package com.sinensia.primerprograma.hilos;
 
 /**
  * Ejemplos de manejo de Threads.

@@ -5,8 +5,13 @@ import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import com.sinensia.primerprograma.redes.services.OpenaiService;
+
 public class ChatServer {
     public static void main(String[] args) {
+        OpenaiService aiService = new OpenaiService(
+                "OPENAI_API_KEY");
+
         System.out.println("Servidor de chat");
         try (ServerSocket serverSocket = new ServerSocket(4999)) {
 
@@ -30,8 +35,11 @@ public class ChatServer {
                 System.out.println("Cliente: " + message);
 
                 // Enviar una respuesta al cliente (puedes personalizar esto)
-                String response = "Servidor: Gracias por tu mensaje.";
-                clientSocket.getOutputStream().write(response.getBytes());
+                String aiResponse = aiService.enviarMensaje(message);
+                clientSocket.getOutputStream().write(("OpenAI: " + aiResponse).getBytes());
+
+                // String response = "Servidor: Gracias por tu mensaje.";
+                // clientSocket.getOutputStream().write(response.getBytes());
             }
 
             // Cerrar la conexión

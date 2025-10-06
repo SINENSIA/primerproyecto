@@ -3,12 +3,11 @@ package com.sinensia.primerprograma.noviembre;
 public class App {
 
     public static void main(String[] args) {
-        Integer minumero = 5;
+
         Gafas gafas = new Gafas("Cerca", "Redondas", 1.5f);
         gafas.ponerGafas();
         gafas.setColor("Morado");
         gafas.quitarGafas();
-
 
         Contador miContador1 = new Contador();
         Contador miContador2 = new Contador();

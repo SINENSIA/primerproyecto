@@ -1,4 +1,4 @@
-package com.sinensia.primerprograma.threads;
+package com.sinensia.primerprograma.hilos;
 
 /**
  * Clase que implementa la interfaz Runnable.

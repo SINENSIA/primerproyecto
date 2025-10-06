@@ -1,4 +1,4 @@
-package com.sinensia.primerprograma.threads;
+package com.sinensia.primerprograma.hilos;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -9,8 +9,8 @@ import java.util.concurrent.Future;
  * Ejemplos de manejo de ExecutorServices Callable
  * con Future.
  *
- * @see com.sinensia.primerprograma.threads.ContadorCallable
- * @see com.sinensia.primerprograma.threads.ContadorRunnable
+ * @see com.sinensia.primerprograma.hilos.ContadorCallable
+ * @see com.sinensia.primerprograma.hilos.ContadorRunnable
  * @version 1.0.0
  * @since 2023
  * @author Sinensia
