@@ -1,4 +1,4 @@
-package com.sinensia.primerprograma;
+package com.sinensia.primerprograma.basico;
 
 /**
  * Hello world!.

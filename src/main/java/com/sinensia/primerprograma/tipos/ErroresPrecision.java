@@ -2,7 +2,8 @@
 package com.sinensia.primerprograma.tipos;
 
 /**
- * <p>Ejemplos con p´redidas de precisión
+ * <p>
+ * Ejemplos con pérdidas de precisión
  */
 public class ErroresPrecision {
     public static void main(String[] args) {

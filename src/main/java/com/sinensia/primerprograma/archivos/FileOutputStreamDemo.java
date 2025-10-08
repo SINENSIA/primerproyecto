@@ -9,8 +9,8 @@ import java.io.IOException;
  *
  * @version 1.0
  * @since 2023
- * @see FileOutputStream
- * @see IOException
+ * @see java.io.FileOutputStream
+ * @see java.io.IOException
  * @author Sinensia
  */
 public class FileOutputStreamDemo {

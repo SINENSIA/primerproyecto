@@ -7,8 +7,8 @@ import java.io.File;
  *
  * @version 1.0
  * @since 2023
- * @see File
- * 
+ * @see java.io.File
+ *
  */
 public class FileDemo {
     /**

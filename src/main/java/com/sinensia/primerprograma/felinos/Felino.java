@@ -95,8 +95,8 @@ abstract sealed class Felino permits Gato, Tigre, Jaguar {
     }
 
     public static void simularReaccion(List<? extends Felino> felinos, Reaccionable reaccion) {
-        for (Felino f : felinos) {
-            reaccion.reaccionar(f);
+        for (Felino felino : felinos) {
+            reaccion.reaccionar(felino);
         }
     }
 }

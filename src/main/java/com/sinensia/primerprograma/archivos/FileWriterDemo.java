@@ -9,7 +9,7 @@ import java.io.IOException;
  *
  * @version 1.0
  * @since 2023
- * @see FileWriter
+ * @see java.io.FileWriter
  */
 public class FileWriterDemo {
     /**

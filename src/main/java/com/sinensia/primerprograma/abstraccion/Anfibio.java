@@ -5,7 +5,7 @@ import com.sinensia.primerprograma.interfaces.Navegable;
 
 /*
  * Clase Anfibio que hereda de Vehiculo e implementa las interfaces Navegable y Conducible
- * @autor Sinensia IT Solutions
+ * @author Sinensia IT Solutions
  */
 public class Anfibio extends Vehiculo implements Navegable, Conducible {
 

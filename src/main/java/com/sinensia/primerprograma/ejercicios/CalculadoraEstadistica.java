@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
  * @since 2023
  * @see CalculadoraEstadisticaTest
  * @author Sinensia
- * @see <a href="https://www.sinensia.com">Sinensia</a>
  * 
  *
  */

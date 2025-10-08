@@ -53,7 +53,7 @@ final class Jaguar extends Felino implements Rugible {
      * @see com.sinensia.primerprograma.felinos.Jaguar#emitirSonido()
      * 
      */
-    @Override
+
     public void rugir() {
         logger.info("El jaguar ruge");
     }

@@ -1,7 +1,13 @@
 package com.sinensia.primerprograma.cleancode;
 
 interface Motorizable {
-    void arrancar();
+    Motor motor();
 
-    void detener();
+    default void arrancar() {
+        motor().encender();
+    }
+
+    default void detener() {
+        motor().encender();
+    }
 }

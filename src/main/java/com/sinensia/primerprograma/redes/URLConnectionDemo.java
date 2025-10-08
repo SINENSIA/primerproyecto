@@ -20,7 +20,7 @@ public class URLConnectionDemo {
      * Metodo main para probar la clase URLConnection.
      *
      * @param args argumentos de la linea de comandos
-     * @throws URISyntaxException
+     * @throws URISyntaxException si la URL proporcionada no es válida
      */
     // No cerrar el reader en el try-with-resources ya que URLConnection no
     // implementa AutoCloseable

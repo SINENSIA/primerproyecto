@@ -59,6 +59,7 @@ public class AppFelinos {
             Felino.getCantidadFelinos();
 
             if (felino instanceof Gato) {
+                
                 Gato gato2 = (Gato) felino;
                 gato2.getNombre();
 

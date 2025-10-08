@@ -109,7 +109,12 @@ public class Tipos {
      * Convierte un valor a través de tipos cada vez más pequeños,
      * potencialmente con pérdida de precisión.
      *
-     * @return El valor final convertido a byte
+     * <p>En este ejemplo, el resultado es {@code 4} porque ese valor se puede
+     * representar sin pérdida en todos los tipos intermedios. Si el valor inicial
+     * fuera {@code 4.5}, el resultado final sería {@code 4} y se produciría pérdida
+     * de precisión.</p>
+     *
+     * @return el valor final convertido a byte y devuelto como double
      */
     public double narrowingDemo() {
         double a = 4;
@@ -119,12 +124,6 @@ public class Tipos {
         short e = (short) d;
         byte f = (byte) e;
 
-        /**
-         * valdrá 4 no se pierde precisión
-         * /* gracias a que 4 es un valor posible en cada tipo
-         * /* de dato, pero si el valor de a fuera 4.5, entonces
-         * /* el valor de f sería 4, se perdería precisión
-         */
         return f;
     }
 
@@ -135,7 +134,7 @@ public class Tipos {
      * sucesivamente a tipos de datos más pequeños, mostrando cómo cambia el valor y
      * se pierde
      * precisión en cada paso.
-     * 
+     *
      * La cadena de conversión es la siguiente:
      * double -> float -> long -> int -> short -> byte
      *

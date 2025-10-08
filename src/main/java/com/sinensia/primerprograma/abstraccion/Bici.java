@@ -6,7 +6,7 @@ import java.util.Objects;
 /**
  * Clase Bici que hereda de Vehiculo e implementa la interfaz Conducible.
  *
- * @autor Sinensia IT Solutions
+ * @author Sinensia IT Solutions
  */
 public class Bici extends Vehiculo implements Conducible {
 

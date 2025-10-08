@@ -91,16 +91,6 @@ public final class Gato extends Felino implements Maullable, Comparable<Gato> {
     }
 
     /**
-     * Obtiene la especie del gato.
-     *
-     * @return Nombre de la especie (String).
-     */
-    @Override
-    public String getEspecie() {
-        return "Gato";
-    }
-
-    /**
      * Obtiene el nombre científico del gato.
      *
      * @return Nombre científico (String).
@@ -108,6 +98,16 @@ public final class Gato extends Felino implements Maullable, Comparable<Gato> {
     @Override
     protected String getNombreCientifico() {
         return NOMBRE_CIENTIFICO;
+    }
+
+    /**
+     * Obtiene la especie del gato.
+     *
+     * @return Nombre de la especie (String).
+     */
+    @Override
+    public String getEspecie() {
+        return "Gato";
     }
 
     /**

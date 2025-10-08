@@ -15,6 +15,11 @@ public class Coche extends Vehiculo implements Motorizable {
         this.motor = new Motor();
     }
 
+    @Override
+    public Motor motor() {
+        return motor;
+    }
+
     /**
      * Inicia la marcha del coche.
      * Si el coche no está arrancado, lo arranca antes de iniciar la marcha.

@@ -5,8 +5,8 @@ import java.text.DecimalFormat;
 /**
  * Ejemplo de rendimiento de String vs StringBuilder.
  *
- * @see String
- * @see StringBuilder
+ * @see java.lang.String
+ * @see java.lang.StringBuilder
  */
 public class RendimientoStringVsStringBuilder {
     /**

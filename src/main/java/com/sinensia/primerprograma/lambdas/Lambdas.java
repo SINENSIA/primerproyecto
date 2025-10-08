@@ -1,4 +1,4 @@
-package com.sinensia.primerprograma;
+package com.sinensia.primerprograma.lambdas;
 
 import com.sinensia.primerprograma.interfaces.Incrementador;
 import com.sinensia.primerprograma.interfaces.Multiplicador;

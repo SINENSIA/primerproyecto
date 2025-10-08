@@ -9,9 +9,9 @@ import java.io.IOException;
  *
  * @version 1.0
  * @since 2023
- * @see FileReader
- * @see IOException
- * 
+ * @see java.io.FileReader
+ * @see java.io.IOException
+ *
  */
 public class FileReaderDemo {
     /**
@@ -21,7 +21,7 @@ public class FileReaderDemo {
      */
     public static void main(String[] args) {
         // Especificar el directorio y el archivo
-        
+
         File directorio = new File("DirectorioSinensia");
         File archivo = new File(directorio, "prueba.txt");
 

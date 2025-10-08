@@ -4,7 +4,7 @@ package com.sinensia.primerprograma.hilos.ciclovida;
  * Clase MiThread que extiende de Thread.
  * Simula un thread que se ejecuta durante un tiempo y luego se interrumpe.
  *
- * @see Thread
+ * @see java.lang.Thread
  * @since 2023
  * @version 1.0.0
  * @author Sinensia
@@ -14,6 +14,7 @@ class MiThread extends Thread {
 
     private static final int MAX_MENSAJES = 5;
 
+    @Override
     public void run() {
         System.out.println("Nuevo: El thread ha sido creado.");
         int contador = 0;

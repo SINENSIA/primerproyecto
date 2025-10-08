@@ -1,11 +1,14 @@
 package com.sinensia.primerprograma.redes.services;
 
 import javax.net.ssl.HttpsURLConnection;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import java.io.*;
 import java.net.URI;
 import java.net.URL;
-import org.json.JSONObject;
-import org.json.JSONArray;
 
 public class OpenaiService {
 
@@ -48,17 +51,16 @@ public class OpenaiService {
                 responseBuilder.append(line);
             }
 
-            // Usar JSON para extraer el contenido
-            JSONObject json = new JSONObject(responseBuilder.toString());
-            JSONArray choices = json.getJSONArray("choices");
-            if (!choices.isEmpty()) {
-                return choices.getJSONObject(0)
-                        .getJSONObject("message")
-                        .getString("content")
-                        .trim();
+            JsonObject root = JsonParser.parseString(responseBuilder.toString()).getAsJsonObject();
+            JsonArray choices = root.getAsJsonArray("choices");
+            if (choices != null && choices.size() > 0) {
+                JsonObject msg = choices.get(0).getAsJsonObject().getAsJsonObject("message");
+                if (msg != null && msg.has("content")) {
+                    return msg.get("content").getAsString().trim();
+                }
             }
-
             return "[Respuesta vacía]";
+
         } catch (Exception e) {
             e.printStackTrace();
             return "[Error al conectar con OpenAI]";

@@ -9,16 +9,16 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
 /**
- * Ejemplo de lectura de archivos con FileReader.
+ * Ejemplo de lectura de archivos con InputStreamReader.
  *
  * @version 1.0
  * @since 2023
- * @see FileReader
- * 
+ * @see java.io.InputStreamReader
+ *
  */
 public class InputStreamReaderDemo {
     /**
-     * Metodo main para probar la clase FileReader.
+     * Metodo main para probar la clase InputStreamReader.
      *
      * @version 1.0
      * @param args argumentos de la linea de comandos

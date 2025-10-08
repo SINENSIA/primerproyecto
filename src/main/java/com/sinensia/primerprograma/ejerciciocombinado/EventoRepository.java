@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  * @since 2023
  * @see Evento
  * @see ZonedDateTime
- * @see SyncronizedSortedSet
+ * @see java.util.Collections#synchronizedSortedSet(java.util.SortedSet)
  * @see EventoHandler
  * @author Sinensia
  */

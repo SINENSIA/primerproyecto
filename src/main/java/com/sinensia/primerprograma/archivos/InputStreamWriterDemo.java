@@ -9,16 +9,16 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 
 /**
- * Ejemplo de lectura de ficheros de texto con InputStream
+ * Ejemplo de escritura de ficheros de texto con OutputStreamWriter.
  *
  * @version 1.0
  * @since 2023
- * @see InputStreamWriter
+ * @see java.io.OutputStreamWriter
  */
 public class InputStreamWriterDemo {
 
     /**
-     * Metodo main para probar la clase InputStreamWriter.
+     * Metodo main para probar la clase OutputStreamWriter.
      *
      * @param args argumentos de la linea de comandos
      */

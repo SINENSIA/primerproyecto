@@ -8,11 +8,12 @@ import java.io.IOException;
 /**
  * Ejemplo de lectura de un archivo con FileInputStream.
  *
- * @version 1.0 since 2023
- * @see FileInputStream
- * @see File
- * @see IOException
- * @see FileNotFoundException
+ * @version 1.0
+ * @since 2023
+ * @see java.io.FileInputStream
+ * @see java.io.File
+ * @see java.io.IOException
+ * @see java.io.FileNotFoundException
  * @author Sinensia
  */
 public class FileInputStreamDemo {

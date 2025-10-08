@@ -15,9 +15,9 @@ import org.junit.jupiter.api.*;
  * @since 2023
  * @see com.sinensia.primerprograma.ejercicios.CalculadoraArea
  */
-public class CalculadoraAreaTest {
+class CalculadoraAreaTest {
     @Test
-    public void pruebaManejoDeExcepcion() {
+    void pruebaManejoDeExcepcion() {
         // Simular una entrada no numérica en el Scanner
         String entradaNoNumerica = "Hola, no es un número\n5\n";
 
@@ -36,7 +36,7 @@ public class CalculadoraAreaTest {
     }
 
     @Test
-    public void simularEntradaNumerica() {
+    void simularEntradaNumerica() {
         String entrada = "5.0\n10.0\n";
         InputStream inputStream = new ByteArrayInputStream(entrada.getBytes());
         System.setIn(inputStream);

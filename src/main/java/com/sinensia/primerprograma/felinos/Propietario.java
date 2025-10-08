@@ -8,7 +8,7 @@ package com.sinensia.primerprograma.felinos;
  */
 public class Propietario {
     private final String nombre;
-    private final String direccion;
+    private String direccion;
 
     /**
      * Constructor para la clase Propietario.
@@ -37,6 +37,10 @@ public class Propietario {
      */
     public String getDireccion() {
         return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     @Override

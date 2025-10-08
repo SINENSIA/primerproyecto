@@ -7,7 +7,7 @@ class Game {
 
     private Game() {
         numSecreto = SingletonRandom.getInstance().nextInt(1, 11);
-
+        System.out.println(numSecreto);
     }
 
     public static void main(String[] args) {
@@ -18,16 +18,10 @@ class Game {
         try (Scanner scanner = new Scanner(System.in)) {
             do {
                 Game myGame = new Game();
-                System.out.println("Adivina el número secreto: ");
-                String num = scanner.next();
-                Resultados resultado = myGame.comprobarResultado(num);
-                if (resultado == Resultados.INVALID) {
-                    continue;
-                } else if (resultado == Resultados.SUCCESS) {
-                    System.out.println("Enhorabuena! ");
-                } else {
-                    System.out.println("Suerte la próxima vez! ");
-                }
+
+                int maxIntentos = 3;
+
+                myGame.play(scanner, maxIntentos);
                 System.out.println("Otra partida? (s/n)");
                 respuesta = scanner.next();
 
@@ -55,6 +49,33 @@ class Game {
             return Resultados.INVALID;
 
         }
+    }
+
+    public void play(Scanner scanner, int maxIntentos) {
+
+        boolean acierto = false;
+        int numIntentos = 0;
+        while (!acierto && numIntentos < maxIntentos) {
+            System.out.println("Adivina el número secreto: ");
+            String num = scanner.next();
+            Resultados resultado = this.comprobarResultado(num);
+            if (resultado == Resultados.INVALID) {
+                // continue; no hace falta
+            } else if (resultado == Resultados.SUCCESS) {
+                System.out.println("Enhorabuena! ");
+                acierto = true;
+            } else {
+                numIntentos++;
+                if (numIntentos < maxIntentos) {
+                    System.out.println("No es ese, intenta de nuevo!");
+                } else {
+                    System.out.println("Ya no hay más intentos. Buena suerte la próxima vez! El númeor era: "
+                            + this.numSecreto);
+                }
+
+            }
+        }
+
     }
 
     public enum Resultados {

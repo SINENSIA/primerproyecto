@@ -6,6 +6,7 @@ package com.sinensia.primerprograma.patrones.adaptadores;
  * 
  * @see DispositivoUsb
  */
-public interface DispositivoUsb {
+// ==== Interfaz esperada por el cliente (target) ====
+interface DispositivoUsb {
     void conectarUsb();
 }
