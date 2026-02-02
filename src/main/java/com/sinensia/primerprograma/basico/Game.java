@@ -2,82 +2,105 @@ package com.sinensia.primerprograma.basico;
 
 import java.util.Scanner;
 
+/**
+ * <b>Juego de Adivinanza (Versión con Intentos)</b>
+ * <p>
+ * Demuestra lógica de bucles, condicionales y uso de {@code Enums} para
+ * gestionar el resultado de una partida con múltiples intentos, utilizando
+ * la API {@link java.lang.IO} de Java 25.
+ * </p>
+ * 
+ * @author Sinensia
+ */
 class Game {
     private int numSecreto;
 
+    /**
+     * Constructor privado: Inicializa el número secreto usando un
+     * {@code Singleton}.
+     */
     private Game() {
+        // Generamos un número entre 1 y 10.
         numSecreto = SingletonRandom.getInstance().nextInt(1, 11);
-        System.out.println(numSecreto);
     }
 
+    /**
+     * Ejecuta el bucle principal de partidas.
+     * 
+     * @param args No se utiliza.
+     */
     public static void main(String[] args) {
 
-        String respuesta = "";
-        System.out.println("Bienvenido al Juego!");
+        String respuesta;
+        IO.println("--- BIENVENIDO AL JUEGO DEL NÚMERO SECRETO ---");
 
         try (Scanner scanner = new Scanner(System.in)) {
             do {
-                Game myGame = new Game();
+                Game partida = new Game();
+                partida.play(scanner, 3); // Máximo 3 intentos
 
-                int maxIntentos = 3;
-
-                myGame.play(scanner, maxIntentos);
-                System.out.println("Otra partida? (s/n)");
+                IO.println("\n¿Quieres jugar otra partida? (s/n): ");
                 respuesta = scanner.next();
 
             } while (!respuesta.equalsIgnoreCase("n"));
 
         } catch (Exception e) {
-            System.out.println("Ha ocurrido un error ");
-            e.printStackTrace();
+            System.err.println("Ha ocurrido un error en el sistema.");
         }
     }
 
+    /**
+     * Comprueba si el texto introducido coincide con el número secreto.
+     * 
+     * @param num Texto a comprobar
+     * @return El estado resultante (SUCCESS, FAILED, INVALID)
+     */
     public Resultados comprobarResultado(String num) {
         try {
             int valor = Integer.parseInt(num);
             if (valor == numSecreto) {
-                System.out.println("Acierto! ");
                 return Resultados.SUCCESS;
             } else {
-                System.out.println("No ese no es! ");
                 return Resultados.FAILED;
             }
-
-        } catch (Exception e) {
-            System.out.println("--- ERROR: Escribe un número entero. ---");
+        } catch (NumberFormatException e) {
+            IO.println("ERROR: Formato no válido. Introduce un número.");
             return Resultados.INVALID;
-
         }
     }
 
+    /**
+     * Lógica de la partida.
+     * 
+     * @param scanner     Fuente de entrada
+     * @param maxIntentos Número de oportunidades
+     */
     public void play(Scanner scanner, int maxIntentos) {
-
         boolean acierto = false;
-        int numIntentos = 0;
-        while (!acierto && numIntentos < maxIntentos) {
-            System.out.println("Adivina el número secreto: ");
-            String num = scanner.next();
-            Resultados resultado = this.comprobarResultado(num);
-            if (resultado == Resultados.INVALID) {
-                // continue; no hace falta
-            } else if (resultado == Resultados.SUCCESS) {
-                System.out.println("Enhorabuena! ");
-                acierto = true;
-            } else {
-                numIntentos++;
-                if (numIntentos < maxIntentos) {
-                    System.out.println("No es ese, intenta de nuevo!");
-                } else {
-                    System.out.println("Ya no hay más intentos. Buena suerte la próxima vez! El númeor era: "
-                            + this.numSecreto);
-                }
+        int intentosRealizados = 0;
 
+        while (!acierto && intentosRealizados < maxIntentos) {
+            IO.print("Introduce el número secreto: ");
+            String entrada = scanner.next();
+            Resultados res = comprobarResultado(entrada);
+
+            if (res == Resultados.SUCCESS) {
+                IO.println("¡INCREÍBLE! Has ganado.");
+                acierto = true;
+            } else if (res == Resultados.FAILED) {
+                intentosRealizados++;
+                if (intentosRealizados < maxIntentos) {
+                    IO.println("No es correcto. Te quedan " + (maxIntentos - intentosRealizados) + " intentos.");
+                } else {
+                    IO.println("GAME OVER. El número era: " + numSecreto);
+                }
             }
         }
-
     }
 
+    /**
+     * Posibles estados de una comprobación.
+     */
     public enum Resultados {
         SUCCESS,
         FAILED,

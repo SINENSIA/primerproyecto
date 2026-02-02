@@ -3,8 +3,11 @@ package com.sinensia.primerprograma.ejercicios.streams;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Reuniones .
@@ -74,26 +77,26 @@ public class ReunionesEmpresa {
 
                 // Filtrar reuniones que comienzan en los próximos 7 días y agrupar por zona
                 // horaria
-                /**
-                 * Map<ZoneId, List<Reunion>> reunionesPorZona = empleados.stream()
-                 * .flatMap(e -> e.getReuniones().stream())
-                 * .filter(r -> {
-                 * ZonedDateTime inicio = r.getInicioZoned();
-                 * ZonedDateTime ahora = ZonedDateTime.now(r.getZona());
-                 * return inicio.isAfter(ahora) && inicio.isBefore(ahora.plusDays(7));
-                 * })
-                 * .collect(Collectors.groupingBy(Reunion::getZona));
-                 * 
-                 * // Mostrar resumen de reuniones agrupadas por zona horaria
-                 * System.out.println(
-                 * "\nResumen de reuniones en los próximos 7 días agrupadas por zona horaria:");
-                 * reunionesPorZona.forEach((zona, reuniones) -> {
-                 * System.out.println("\nZona horaria: " + zona);
-                 * reuniones.forEach(reunion -> {
-                 * reunion.mostrarResumen();
-                 * System.out.println("----------------------------");
-                 * });
-                 * });
-                 */
+
+                Map<ZoneId, List<Reunion>> reunionesPorZona = empleados.stream()
+                                .flatMap(e -> e.getReuniones().stream())
+                                .filter(r -> {
+                                        ZonedDateTime inicio = r.getInicioZoned();
+                                        ZonedDateTime ahora = ZonedDateTime.now(r.getZona());
+                                        return inicio.isAfter(ahora) && inicio.isBefore(ahora.plusDays(7));
+                                })
+                                .collect(Collectors.groupingBy(Reunion::getZona));
+
+                // Mostrar resumen de reuniones agrupadas por zona horaria
+                System.out.println(
+                                "\nResumen de reuniones en los próximos 7 días agrupadas por zona horaria:");
+                reunionesPorZona.forEach((zona, reuniones) -> {
+                        System.out.println("\nZona horaria: " + zona);
+                        reuniones.forEach(reunion -> {
+                                reunion.mostrarResumen();
+                                System.out.println("----------------------------");
+                        });
+                });
+
         }
 }

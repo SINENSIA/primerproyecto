@@ -1,0 +1,96 @@
+package com.sinensia.primerprograma.poo.felinos;
+
+import java.util.logging.Logger;
+
+import com.sinensia.primerprograma.poo.interfaces.Rugible;
+
+/**
+ * Clase Jaguar implementa rugible. emiteSonido() llama a rugir()
+ * implementa su propio getEspecie()
+ *
+ * @see com.sinensia.primerprograma.poo.felinos.Felino
+ * @see com.sinensia.primerprograma.poo.interfaces.Rugible
+ * @see com.sinensia.primerprograma.poo.interfaces.Maullable
+ * @see com.sinensia.primerprograma.poo.felinos.Gato
+ *
+ * @version 1.0
+ * @since 2023
+ **/
+final class Jaguar extends Felino implements Rugible {
+    private static final String NOMBRE_CIENTIFICO = "Panthera onca";
+
+    private static final Logger logger = Logger.getLogger(Jaguar.class.getName());
+
+    /**
+     * Constructor de Jaguar por defecto. Aumenta la cantidad de felinos.
+     * NO está sobrecargado
+     */
+    public Jaguar() {
+        super(); // Llamo a super para contar el jaguar
+    }
+
+    /**
+     * emitirSonido() es un método de Felino y llama a rugir()
+     * todos los Felinos emiten sonido, pero cada uno lo hace de una forma.
+     * diferente. Los Jaguares rugen.
+     *
+     * @see com.sinensia.primerprograma.poo.felinos.Felino#emitirSonido()
+     * @see com.sinensia.primerprograma.poo.felinos.Jaguar#rugir()
+     * @see com.sinensia.primerprograma.poo.interfaces.Rugible
+     * 
+     */
+    @Override
+    protected void emitirSonido() {
+        rugir();
+    }
+
+    /**
+     * rugir() es un método del interfaz Rugible.
+     * Se llama desde emitirSonido()
+     *
+     * @see com.sinensia.primerprograma.poo.interfaces.Rugible
+     * @see com.sinensia.primerprograma.poo.felinos.Felino#emitirSonido()
+     * @see com.sinensia.primerprograma.poo.felinos.Jaguar#emitirSonido()
+     * 
+     */
+
+    public void rugir() {
+        logger.info("El jaguar ruge");
+    }
+
+    /**
+     * getEspecie() es un método de Felino.
+     * Todos los Felinos tienen especie, pero cada uno implementa su propio
+     * getEspecie().
+     *
+     * @see com.sinensia.primerprograma.poo.felinos.Felino#getEspecie()
+     * @return especie (String)
+     */
+    @Override
+    public String getEspecie() {
+        return "Jaguar";
+    }
+
+    /**
+     * override de comer() para el jaguar.
+     * todos los Felinos comen pero cada uno
+     * a su manera. Los jaguares comen capibaras
+     *
+     * @see com.sinensia.primerprograma.poo.felinos.Felino#comer()
+     * 
+     */
+    @Override
+    public void comer() {
+        logger.info("El jaguar come capibaras");
+    }
+
+    /**
+     * override de getNombreCientifico() para el jaguar.
+     * todos los Felinos tienen nombre científico pero cada uno
+     * tiene uno diferente
+     */
+    public String getNombreCientifico() {
+        return NOMBRE_CIENTIFICO;
+    }
+
+}

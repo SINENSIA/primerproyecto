@@ -54,5 +54,6 @@ public class Contador {
 
         contador1.mostrarValores();
         contador2.mostrarValores();
+
     }
 }

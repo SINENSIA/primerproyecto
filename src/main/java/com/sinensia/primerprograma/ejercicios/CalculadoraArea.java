@@ -45,9 +45,8 @@ public class CalculadoraArea {
     }
 
     static double leerDesdeScanner(Scanner scanner) {
-        // validar
-        return scanner.nextDouble();
-
+        // Aseguramos un locale consistente para números con punto decimal.
+        return scanner.useLocale(java.util.Locale.US).nextDouble();
     }
 
 }

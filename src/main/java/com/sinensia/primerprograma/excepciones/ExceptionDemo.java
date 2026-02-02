@@ -17,12 +17,8 @@ public class ExceptionDemo {
     @SuppressWarnings("all")
     public static void main(String[] args) {
         String str = null; // Declaramos una variable de tipo String y la inicializamos con null
-        try {
-            int length = str.length(); // Intentamos obtener la longitud de la cadena
-            System.out.println(length);
-        } catch (NullPointerException e) {
-            System.out.println("El texto no puede estar vacío");
-        }
+        int length = str.length(); // Forzamos NullPointerException para la demostración
+        System.out.println(length);
     }
 
 }

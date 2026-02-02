@@ -4,16 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
 // Clase Alumno interna
 public class Alumno {
     private String nombre;
-    private String dni;
+    private String dni; // ES te esto
     private List<String> cursos;
 
     public Alumno(String nombre, String dni) {
         this.nombre = nombre;
-        this.dni = dni;
+        this.dni = dni; // Se incializa aquí
         this.cursos = new ArrayList<>();
     }
 
@@ -30,11 +29,6 @@ public class Alumno {
     }
 
     @Override
-    public String toString() {
-        return nombre + " (" + dni + ") - Cursos: " + cursos;
-    }
-
-    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -43,11 +37,13 @@ public class Alumno {
             return false;
         }
         Alumno alumno = (Alumno) obj;
-        return Objects.equals(dni, alumno.dni);
+
+        return Objects.equals(dni, alumno.dni); // true si es el mismo dni
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(dni);
     }
+
 }

@@ -3,7 +3,6 @@ package com.sinensia.primerprograma.ejercicios.streams;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Empleado {
 
@@ -82,8 +81,8 @@ public class Empleado {
 
         // Paso 2: Filtrar empleados con salario < 30000 €
         List<Empleado> salarioBajo = empleados.stream()
-                .filter(e -> e.getSalario() < 30000)
-                .collect(Collectors.toList());
+                .filter(empleado -> empleado.getSalario() < 30_000)
+                .toList();
 
         System.out.println("Empleados con salario inferior a 30000€:");
         salarioBajo.forEach(System.out::println);
@@ -92,7 +91,7 @@ public class Empleado {
         List<String> nombresTech = empleados.stream()
                 .filter(e -> e.getDepartamento().equals("IT"))
                 .map(Empleado::getNombre)
-                .collect(Collectors.toList());
+                .toList();
 
         System.out.println("\nNombres de empleados del departamento IT:");
         nombresTech.forEach(System.out::println);

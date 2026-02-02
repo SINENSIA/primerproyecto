@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro correcto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem auto;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .resumen {
+            background: #f1f8e9;
+            border: 1px solid #c5e1a5;
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: #1976d2;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h1>¡Registro completado con éxito!</h1>
+
+<section class="resumen" th:if="${usuario}">
+    <p><strong>Nombre:</strong> <span th:text="${usuario.nombre}">Nombre</span></p>
+    <p><strong>Email:</strong> <span th:text="${usuario.email}">email@dominio.com</span></p>
+    <p><strong>Edad:</strong> <span th:text="${usuario.edad}">18</span></p>
+</section>
+
+<a th:href="@{/registro}">Volver al formulario</a>
+</body>
+</html>

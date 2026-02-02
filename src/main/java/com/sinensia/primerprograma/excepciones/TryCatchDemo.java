@@ -23,12 +23,12 @@ public class TryCatchDemo {
             int length = str.length(); // Intentamos obtener la longitud de la cadena
             System.out.println(length);
         } catch (NullPointerException e) {
-            System.err.println("Error: " + e.getMessage());
+            System.out.print("Error: " + e.getMessage() + "\r" + System.lineSeparator());
         } catch (Exception e) {
-            System.err.println("Error genérico: " + e.getMessage());
+            System.out.print("Error genérico: " + e.getMessage() + "\r" + System.lineSeparator());
         } finally {
             // Este bloque se ejecutará independientemente de si se lanzó una excepción o no
-            System.out.println("Esto siempre se ejecuta");
+            System.out.print("Esto siempre se ejecuta");
         }
     }
 

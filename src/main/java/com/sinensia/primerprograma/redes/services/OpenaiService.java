@@ -32,7 +32,7 @@ public class OpenaiService {
 
             String body = """
                     {
-                      "model": "gpt-3.5-turbo",
+                      "model": "gpt-5-mini",
                       "messages": [{"role": "user", "content": "%s"}],
                       "temperature": 0.7
                     }
