@@ -3,7 +3,7 @@ package com.sinensia.primerprograma.basico.repaso;
 /**
  * <b>Paso por Valor vs Paso por Referencia</b>
  * <p>
- * En Java, TODO es paso por valor. Sin embargo, para los objetos, el "valor"
+ * En Java, T,ODO es paso por valor. Sin embargo, para los objetos, el "valor"
  * que se pasa es la referencia (dirección de memoria).
  * </p>
  * 

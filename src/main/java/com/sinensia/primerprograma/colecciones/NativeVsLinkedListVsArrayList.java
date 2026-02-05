@@ -24,7 +24,7 @@ public class NativeVsLinkedListVsArrayList {
      */
     @SuppressWarnings("all")
     public static void main(String[] args) {
-        int n = 100_000; // Tamaño de la lista
+        int n = 1_000_000; // Tamaño de la lista
 
         // Crear una ArrayList y una LinkedList
         List<Integer> arrayList = new ArrayList<>();

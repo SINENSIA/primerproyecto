@@ -12,4 +12,9 @@ public class Oyente extends Persona {
     public void presentarse() {
         System.out.println("Hola, soy " + nombre + ", y me encanta escuchar " + generoFavorito + ".");
     }
+
+    public void setGeneroFavorito(String genero) {
+        this.generoFavorito = genero;
+
+    }
 }

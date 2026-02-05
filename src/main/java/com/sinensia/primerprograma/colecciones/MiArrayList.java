@@ -134,5 +134,9 @@ public class MiArrayList {
         String[] arrayDeNombres = nombres.toArray(new String[0]); // Convierte a un array de String
         System.out.println(Arrays.toString(arrayDeNombres));
 
+
+
+        
+
     }
 }

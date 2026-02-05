@@ -18,6 +18,7 @@ public class PrecisionComparacion {
      * 
      * @param args No se utiliza.
      */
+    
     public static void main(String[] args) {
         // Ejemplo simple de suma decimal
         float f = 0.1f + 0.2f;

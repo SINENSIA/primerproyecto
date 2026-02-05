@@ -115,22 +115,12 @@ public class EqualsHashCode {
         }
 
         public String toString() {
-            return "{"
-                    + " nombre='"
-                    + getNombre()
-                    + "'"
-                    + ", apellidos='"
+            return getNombre()
+                    + " "
                     + getApellidos()
-                    + "'" + ", dni='"
+                    + " "
                     + getDni()
-                    + "'"
-                    + ", direccion='"
-                    + getDireccion()
-                    + "'"
-                    + ", edad='"
-                    + getEdad()
-                    + "'"
-                    + "}\n";
+                    + "\n";
         }
 
         @Override

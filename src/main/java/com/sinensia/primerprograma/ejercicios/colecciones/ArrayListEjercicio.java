@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 
 /**
  * Ejercicio con ArrayList: operaciones básicas de gestión de una lista de
@@ -46,7 +47,7 @@ import java.util.LinkedHashSet;
  */
 public class ArrayListEjercicio {
     public static void main(String[] args) {
-        ArrayList<String> tareas = new ArrayList<String>();
+        ArrayList<String> tareas = new ArrayList<>();
         tareas.add("pagar facturas");
         tareas.add("estudiar");
         tareas.add("comprar pan");
@@ -65,7 +66,7 @@ public class ArrayListEjercicio {
         ArrayList<String> ordenSinDuplicados = eliminarDuplicadosPreservandoOrdenLinkedHashSet(tareas);
         System.out.println(ordenSinDuplicados);
 
-        ArrayList<String> ordenSinDuplicados2 = eliminarDuplicadosPreservandoOrdenHashset(tareas);
+        List<String> ordenSinDuplicados2 = eliminarDuplicadosPreservandoOrdenHashset(tareas);
         System.out.println(ordenSinDuplicados2);
         // 4) Comprobar si contiene "estudiar"
         boolean contieneEstudiar = sinDuplicados.contains("estudiar");
@@ -104,7 +105,7 @@ public class ArrayListEjercicio {
      * @return nueva lista sin duplicados y con el mismo orden relativo
      */
     public static ArrayList<String> eliminarDuplicadosPreservandoOrden(ArrayList<String> original) {
-        ArrayList<String> resultado = new ArrayList<String>();
+        ArrayList<String> resultado = new ArrayList<>();
         for (int i = 0; i < original.size(); i++) {
             String elemento = original.get(i);
             if (!resultado.contains(elemento)) {
@@ -134,7 +135,8 @@ public class ArrayListEjercicio {
     public static ArrayList<String> eliminarDuplicadosPreservandoOrdenLinkedHashSet(ArrayList<String> original) {
         // 1. original ArrayList
         // 2. crear un linkedHashSet a partir de tareas (ArraList original)
-        // 3. devolver un nuevo ArrayList construyéndolo a partir del LinkedHashSet (que no contine duplicados)
+        // 3. devolver un nuevo ArrayList construyéndolo a partir del LinkedHashSet (que
+        // no contine duplicados)
         return new ArrayList<>(new LinkedHashSet<>(original));
     }
 
@@ -150,8 +152,8 @@ public class ArrayListEjercicio {
      * @param original lista original con posibles duplicados
      * @return nueva lista sin duplicados y con el mismo orden relativo
      */
-    public static ArrayList<String> eliminarDuplicadosPreservandoOrdenHashset(ArrayList<String> original) {
-        ArrayList<String> resultado = new ArrayList<>();
+    public static List<String> eliminarDuplicadosPreservandoOrdenHashset(ArrayList<String> original) {
+        List<String> resultado = new ArrayList<>();
         HashSet<String> vistos = new HashSet<>();
 
         for (String elemento : original) {

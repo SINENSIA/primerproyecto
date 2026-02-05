@@ -27,12 +27,16 @@ public class AmbitoVariables {
         // Variable local (dentro del método main)
         int localVar = 20;
 
+        // AmbitoVariables miambito = new AmbitoVariables();
+        // miambito.globalVar++; // no recomendable
+        AmbitoVariables.globalVar++;
+
         if (localVar == 20) {
             // Variable de bloque (dentro del if)
             int blockVar = 30;
             System.out.println("Valor de blockVar: " + blockVar);
         }
-                
+        System.out.println("Valor de MICONSTANTE: " + AmbitoVariables.globalVar);
         System.out.println("Valor de localVar: " + localVar);
         System.out.println("Valor de globalVar: " + globalVar);
     }

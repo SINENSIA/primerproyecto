@@ -64,7 +64,7 @@ public class Producto {
         // Paso 2: Filtrar productos baratos (precio < 100 €)
         List<Producto> baratos = productos.stream()
                 .filter(p -> p.getPrecio() < 100)
-                .collect(Collectors.toList());
+                .toList();
 
         System.out.println("Productos baratos:");
         baratos.forEach(System.out::println);

@@ -80,9 +80,9 @@ public class ReunionesEmpresa {
 
                 Map<ZoneId, List<Reunion>> reunionesPorZona = empleados.stream()
                                 .flatMap(e -> e.getReuniones().stream())
-                                .filter(r -> {
-                                        ZonedDateTime inicio = r.getInicioZoned();
-                                        ZonedDateTime ahora = ZonedDateTime.now(r.getZona());
+                                .filter(reunion -> {
+                                        ZonedDateTime inicio = reunion.getInicioZoned();
+                                        ZonedDateTime ahora = ZonedDateTime.now(reunion.getZona());
                                         return inicio.isAfter(ahora) && inicio.isBefore(ahora.plusDays(7));
                                 })
                                 .collect(Collectors.groupingBy(Reunion::getZona));

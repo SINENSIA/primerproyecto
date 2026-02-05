@@ -85,11 +85,11 @@ public class Empleado {
                 .toList();
 
         System.out.println("Empleados con salario inferior a 30000€:");
-        salarioBajo.forEach(System.out::println);
+        salarioBajo.forEach(IO::println);
 
         // Paso 3: Obtener nombres de empleados del departamento IT
         List<String> nombresTech = empleados.stream()
-                .filter(e -> e.getDepartamento().equals("IT"))
+                .filter(empleado -> empleado.getDepartamento().equals("IT"))
                 .map(Empleado::getNombre)
                 .toList();
 
