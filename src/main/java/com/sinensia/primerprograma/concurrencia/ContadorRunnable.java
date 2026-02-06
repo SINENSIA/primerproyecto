@@ -31,12 +31,19 @@ public class ContadorRunnable implements Runnable {
     public void run() {
         while (contador < valor) {
             contador++;
-            System.out.println("Contador: " + Thread.currentThread().getName() + " " + contador);
+            System.out.println(
+                    "Retardo "
+                            + retardo
+                            + " "
+                            + "Hilo: "
+                            + Thread.currentThread().getName()
+                            + " Contando:"
+                            + contador);
             try {
                 Thread.sleep(retardo);
             } catch (InterruptedException ex) {
                 System.out.println("Exception HILO" + Thread.currentThread().getName());
-                System.err.println("Error al parar el hilo");
+                // System.err.println("Error al parar el hilo");
                 Thread.currentThread().interrupt(); // Buena práctica reinterrumpir el hilo
             } finally {
                 System.out.println("Estoy en el HILO: ---------------"

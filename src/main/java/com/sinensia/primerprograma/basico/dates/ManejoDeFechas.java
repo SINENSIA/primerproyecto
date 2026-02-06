@@ -56,7 +56,7 @@ public class ManejoDeFechas {
                 System.out.println("Ayer fue:       " + ayer);
 
                 // Creación manual (Año, Mes, Día)
-                LocalDate fechaEspecifica = LocalDate.of(2023, 7, 30);
+                LocalDate fechaEspecifica = LocalDate.of(2026, 7, 30);
                 System.out.println("Fecha específica: " + fechaEspecifica);
 
                 // Consultas comparativas

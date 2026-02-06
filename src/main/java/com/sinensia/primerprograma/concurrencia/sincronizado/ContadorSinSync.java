@@ -4,6 +4,7 @@ public class ContadorSinSync {
     private int valor = 0;
 
     public void incrementar() {
+
         valor++; // No es atómico
     }
 

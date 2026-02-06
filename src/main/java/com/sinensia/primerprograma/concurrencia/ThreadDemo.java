@@ -37,13 +37,13 @@ public class ThreadDemo {
         ContadorRunnable contador = new ContadorRunnable(1000, 100);
         Thread hiloContador = new Thread(contador);
         hiloContador.start();
-        hiloContador.interrupt();
+        // hiloContador.interrupt();
 
         // 100 milisegundos, 100 vueltas
         ContadorRunnable contador2 = new ContadorRunnable(100, 100);
         Thread hiloContador2 = new Thread(contador2);
         hiloContador2.start();
-        hiloContador2.interrupt();
+        // hiloContador2.interrupt();
 
     }
 }

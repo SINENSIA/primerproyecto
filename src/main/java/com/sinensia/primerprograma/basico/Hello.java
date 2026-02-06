@@ -1,5 +1,7 @@
 package com.sinensia.primerprograma.basico;
 
+import com.sinensia.util.NotificationBus;
+
 /**
  * <b>Clase Clásica: Hola Mundo</b>
  * <p>
@@ -18,5 +20,6 @@ public class Hello {
      */
     public static void main(String[] args) {
         System.out.println("Hola mundo desde el Primer Proyecto Java");
+
     }
 }
