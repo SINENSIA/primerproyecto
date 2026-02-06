@@ -21,7 +21,7 @@ public class RendimientoStringVsStringBuilder {
      * @param args No se utiliza.
      */
     public static void main(String[] args) {
-        int iteraciones = 100_000;
+        int iteraciones = 500_000;
         DecimalFormat df = new DecimalFormat("#,###.###");
 
         System.out.println("Iniciando test de rendimiento (" + iteraciones + " iteraciones)...");

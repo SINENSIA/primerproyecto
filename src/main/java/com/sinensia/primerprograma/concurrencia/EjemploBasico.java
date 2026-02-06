@@ -8,12 +8,18 @@ package com.sinensia.primerprograma.concurrencia;
 public class EjemploBasico {
     public static void main(String[] args) {
         System.out.println("Ejecutando en: " + Thread.currentThread().getName()); // "main"
+        otroHiloMas();
         otroHilo();
     }
 
     public static void otroHilo() {
         MiHilo otroHilo = new MiHilo();
         otroHilo.start();
+    }
+
+    public static void otroHiloMas() {
+        MiHilo otroHiloMas = new MiHilo();
+        otroHiloMas.start();
     }
 }
 

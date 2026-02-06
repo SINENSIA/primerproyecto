@@ -6,13 +6,14 @@ import java.util.List;
 public class SolucionCollections {
 
     public static void main(String[] args) {
-
+        
         List<Animal> animales = List.of(
                 new Animal("Tigre", 5, 220),
                 new Animal("Leon", 8, 190),
                 new Animal("Lince", 3, 25),
                 new Animal("Oso", 12, 350),
                 new Animal("Lobo", 6, 45));
+
 
         // 1. Mostrar todos los animales
         for (Animal a : animales) {
