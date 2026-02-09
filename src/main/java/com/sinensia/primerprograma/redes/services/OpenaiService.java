@@ -1,14 +1,17 @@
 package com.sinensia.primerprograma.redes.services;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.URI;
+import java.net.URL;
+
 import javax.net.ssl.HttpsURLConnection;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
-import java.io.*;
-import java.net.URI;
-import java.net.URL;
 
 public class OpenaiService {
 
@@ -33,8 +36,7 @@ public class OpenaiService {
             String body = """
                     {
                       "model": "gpt-5-mini",
-                      "messages": [{"role": "user", "content": "%s"}],
-                      "temperature": 0.7
+                      "messages": [{"role": "user", "content": "%s"}]
                     }
                     """.formatted(mensajeUsuario.replace("\"", "\\\""));
 
