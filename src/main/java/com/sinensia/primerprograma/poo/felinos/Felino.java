@@ -32,7 +32,7 @@ abstract sealed class Felino permits Gato, Tigre, Jaguar {
         synchronized (Felino.class) {
             cantidadFelinos++;
         }
-        logger.info("Nuevo felino creado. Cantidad total: " + cantidadFelinos);
+        logger.info(() -> "Nuevo felino creado. Cantidad total: " + cantidadFelinos);
 
     }
 
@@ -82,7 +82,7 @@ abstract sealed class Felino permits Gato, Tigre, Jaguar {
     public static synchronized void eliminarFelino() {
         if (cantidadFelinos > 0) {
             cantidadFelinos--;
-            logger.info("Un felino ha sido eliminado. Cantidad actual: " + cantidadFelinos);
+            logger.info(() -> "Un felino ha sido eliminado. Cantidad actual: " + cantidadFelinos);
         } else {
             logger.warning("No hay felinos que eliminar.");
         }

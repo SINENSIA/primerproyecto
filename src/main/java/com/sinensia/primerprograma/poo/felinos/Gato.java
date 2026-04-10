@@ -1,12 +1,12 @@
 package com.sinensia.primerprograma.poo.felinos;
 
-import com.sinensia.primerprograma.poo.interfaces.Maullable;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Logger;
+
+import com.sinensia.primerprograma.poo.interfaces.Maullable;
 
 /**
  * Clase Gato hereda de Felino e implementa Maullable.

@@ -34,6 +34,11 @@ public class AppFelinos {
     public static void main(String[] args) {
 
         Felino gato = new Gato("Misifu", 3243521);
+        
+        Felino gato3 = new Gato("Misifu", 3243521);
+        IO.println(gato.equals(gato3));
+        IO.println(gato);
+        IO.println("----------------------------");
         Felino tigre = new Tigre();
         Felino jaguar = new Jaguar();
         // Cliente cliente = new Cliente("Juan", true);
@@ -59,7 +64,7 @@ public class AppFelinos {
             Felino.getCantidadFelinos();
 
             if (felino instanceof Gato) {
-                
+
                 Gato gato2 = (Gato) felino;
                 gato2.getNombre();
 
@@ -115,14 +120,12 @@ public class AppFelinos {
         Felino trasgo = new Gato("Trasgo", 234878554, myself);
         System.out.println(trasgo);
 
-
         // Uso de interfaces funcionales
         System.out.println(".........Interfaces funcionales............");
         Felino.procesarFelinos(felinos, felino -> {
             System.out.println("Especie: " + felino.getEspecie());
             felino.emitirSonido();
         });
-
 
         // Definimos estímulos como lambdas:
         Reaccionable reaccionSonidoFuerte = felino -> System.out.println(
